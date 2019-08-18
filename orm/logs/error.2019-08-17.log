@@ -1,0 +1,52 @@
+[2019-08-17 01:21:09] api[].ERROR: Directus\Exception\UnauthorizedException: Unauthorized request in C:\xampp\htdocs\directus_7\src\helpers\app.php:268
+Stack trace:
+#0 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(530): Directus\{closure}
+#1 C:\xampp\htdocs\directus_7\src\core\Directus\Application\Http\Middleware\CorsMiddleware.php(66): Slim\App->__invoke
+#2 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#3 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\DeferredCallable.php(43): call_user_func_array
+#4 [internal function]: Slim\DeferredCallable->__invoke
+#5 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\MiddlewareAwareTrait.php(70): call_user_func
+#6 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#7 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(405): Slim\App->callMiddlewareStack
+#8 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(313): Slim\App->process
+#9 C:\xampp\htdocs\directus_7\src\core\Directus\Application\Application.php(161): Slim\App->run
+#10 C:\xampp\htdocs\directus_7\public\index.php(5): Directus\Application\Application->run [] []
+[2019-08-17 01:21:09] api[].ERROR: Directus\Exception\UnauthorizedException: Unauthorized request in C:\xampp\htdocs\directus_7\src\helpers\app.php:268
+Stack trace:
+#0 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(530): Directus\{closure}
+#1 C:\xampp\htdocs\directus_7\src\core\Directus\Application\Http\Middleware\CorsMiddleware.php(66): Slim\App->__invoke
+#2 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#3 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\DeferredCallable.php(43): call_user_func_array
+#4 [internal function]: Slim\DeferredCallable->__invoke
+#5 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\MiddlewareAwareTrait.php(70): call_user_func
+#6 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#7 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(405): Slim\App->callMiddlewareStack
+#8 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(313): Slim\App->process
+#9 C:\xampp\htdocs\directus_7\src\core\Directus\Application\Application.php(161): Slim\App->run
+#10 C:\xampp\htdocs\directus_7\public\index.php(5): Directus\Application\Application->run [] []
+[2019-08-17 03:17:14] api[].ERROR: Directus\Exception\UnauthorizedException: Unauthorized request in C:\xampp\htdocs\directus_7\src\helpers\app.php:268
+Stack trace:
+#0 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(530): Directus\{closure}
+#1 C:\xampp\htdocs\directus_7\src\core\Directus\Application\Http\Middleware\CorsMiddleware.php(66): Slim\App->__invoke
+#2 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#3 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\DeferredCallable.php(43): call_user_func_array
+#4 [internal function]: Slim\DeferredCallable->__invoke
+#5 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\MiddlewareAwareTrait.php(70): call_user_func
+#6 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#7 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(405): Slim\App->callMiddlewareStack
+#8 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(313): Slim\App->process
+#9 C:\xampp\htdocs\directus_7\src\core\Directus\Application\Application.php(161): Slim\App->run
+#10 C:\xampp\htdocs\directus_7\public\index.php(5): Directus\Application\Application->run [] []
+[2019-08-17 21:24:38] api[].ERROR: Directus\Exception\UnauthorizedException: Unauthorized request in C:\xampp\htdocs\directus_7\src\helpers\app.php:268
+Stack trace:
+#0 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(530): Directus\{closure}
+#1 C:\xampp\htdocs\directus_7\src\core\Directus\Application\Http\Middleware\CorsMiddleware.php(66): Slim\App->__invoke
+#2 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#3 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\DeferredCallable.php(43): call_user_func_array
+#4 [internal function]: Slim\DeferredCallable->__invoke
+#5 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\MiddlewareAwareTrait.php(70): call_user_func
+#6 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#7 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(405): Slim\App->callMiddlewareStack
+#8 C:\xampp\htdocs\directus_7\vendor\slim\slim\Slim\App.php(313): Slim\App->process
+#9 C:\xampp\htdocs\directus_7\src\core\Directus\Application\Application.php(161): Slim\App->run
+#10 C:\xampp\htdocs\directus_7\public\index.php(5): Directus\Application\Application->run [] []
