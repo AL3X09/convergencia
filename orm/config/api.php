@@ -16,7 +16,7 @@ return [
         'type' => 'mysql',
         'host' => 'localhost',
         'port' => 3306,
-        'name' => 'convergencia',
+        'name' => 'convergenci',
         'username' => 'root',
         'password' => 'AL3X',
         'engine' => 'InnoDB',
