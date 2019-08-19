@@ -105,7 +105,7 @@
                       <i class="now-ui-icons users_circle-08"></i>
                     </span>
                   </div>
-                  <input name="userName" type="text" class="form-control" placeholder="First Name...">
+                  <input name="userName" type="text" class="form-control" placeholder="Usuario...">
                 </div>
                 <div class="input-group no-border input-lg">
                   <div class="input-group-prepend">
@@ -113,7 +113,7 @@
                       <i class="now-ui-icons text_caps-small"></i>
                     </span>
                   </div>
-                  <input name="password" type="text" placeholder="Last Name..." class="form-control" />
+                  <input name="password" type="Password" placeholder="Contraseña..." class="form-control" />
                 </div>
               </div>
               <div class="card-footer text-center">
