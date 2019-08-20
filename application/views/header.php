@@ -53,7 +53,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="<?php echo base_url(); ?>assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link btn btn-neutral" href="https://www.creative-tim.com/product/now-ui-kit-pro" target="_blank">
+            <a class="nav-link btn btn-neutral" href="<?php echo base_url(); ?>/login" target="_blank">
               <i class="now-ui-icons users_circle-08"></i>
               <p>Login</p>
             </a>
@@ -91,7 +91,7 @@
           <h1 class="h1-seo">Convergencia.</h1>
           <h3>Slogan del sitio.</h3>
         </div>
-        <h6 class="category category-absolute">Create by. Alexander Cifuentes & Erik Brian
+        <h6 class="category category-absolute">Create by. Alexander Cifuentes & Erik Galindo
           <a href="https://www.creative-tim.com" target="_blank">
            <!-- <img src="<?php echo base_url(); ?>assets/img/creative-tim-white-slim2.png" class="creative-tim-logo" />-->
           </a>.</h6>
