@@ -43,6 +43,14 @@
                       <i class="now-ui-icons users_circle-08"></i>
                     </span>
                   </div>
+                  <input name="localidad" id="localidad" type="select" class="form-control" placeholder="Correo...">
+                </div>
+                <div class="input-group no-border input-lg">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="now-ui-icons users_circle-08"></i>
+                    </span>
+                  </div>
                   <input name="usuario" id="usuario" type="text" class="form-control" placeholder="Usuario...">
                 </div>
                 <div class="input-group no-border input-lg">
