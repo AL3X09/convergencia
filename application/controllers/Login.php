@@ -12,10 +12,10 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('headersesion');
-		$this->load->view('navsesion');
-		$this->load->view('login');
-		$this->load->view('footersesion');
+		$this->load->view('sesion/headersesion');
+		$this->load->view('sesion/navsesion');
+		$this->load->view('sesion/login');
+		$this->load->view('sesion/footersesion');
 		
 	}
 }
