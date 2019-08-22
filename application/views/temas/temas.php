@@ -13,21 +13,51 @@
             <div class="col-md-12">
 
 
-                <ul class="ks-cboxtags">
-                  <li><input type="checkbox" id="checkboxOne" value="Rainbow Dash"><label for="checkboxOne">Educacion</label></li>
-                  <li><input type="checkbox" id="checkboxTwo" value="Cotton Candy" checked><label for="checkboxTwo">Salud</label></li>
-                  <li><input type="checkbox" id="checkboxThree" value="Rarity" checked><label for="checkboxThree">Transporte</label></li>
-                  <li><input type="checkbox" id="checkboxFour" value="Moondancer"><label for="checkboxFour">Infraestructura</label></li>
-                  <li><input type="checkbox" id="checkboxFive" value="Surprise"><label for="checkboxFive">Seguridad</label></li>
-                  <li><input type="checkbox" id="checkboxSix" value="Twilight Sparkle" checked><label for="checkboxSix">Impuestos</label></li>
-                  <li><input type="checkbox" id="checkboxSeven" value="Fluttershy"><label for="checkboxSeven">Fluttershy</label></li>
-                  <li><input type="checkbox" id="checkboxEight" value="Derpy Hooves"><label for="checkboxEight">Derpy Hooves</label></li>
-                  <li><input type="checkbox" id="checkboxNine" value="Princess Celestia"><label for="checkboxNine">PrincessCelestia</label></li>
-                </ul>
-                <!-- End Section temas de interes -->
+            <div id="tema1" class="card" onclick ="colorCambiar('tema1','checkTema1')" style="width: 20rem;-webkit-filter:grayscale(100%)">
+  <img class="card-img-top" src="https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg" alt="Card image cap">
+  <div class="card-body">
+  <h4 class="card-title">Transporte</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input id="checkTema1" class="form-check-input" type="checkbox" value="">
+        Seleccionar
+        <span class="form-check-sign">
+            <span class="check"></span>
+        </span>
+    </label>
+</div>
+  </div>
+</div>
+
+<div  id="tema2" class="card" onclick ="colorCambiar('tema2','checkTema2')" style="width: 20rem;-webkit-filter:grayscale(100%)"
+    -webkit-filter: grayscale(100%);">
+  <img class="card-img-top" src="http://hellomoto.com.co/wp/wp-content/uploads/2018/04/hellobogota_1-1024x687.png" alt="Card image cap">
+  <div class="card-body">
+  <h4 class="card-title">Transporte</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input id="checkTema2" class="form-check-input" type="checkbox" value="">
+        Seleccionar
+        <span class="form-check-sign">
+            <span class="check"></span>
+        </span>
+    </label>
+</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
             </div>
-
-
 
            
           </div>

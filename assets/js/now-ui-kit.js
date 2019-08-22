@@ -239,6 +239,22 @@ nowuiKit = {
   }
 }
 
+function colorCambiar(nameId,nameIdCheck){
+  cardElementId=document.getElementById(nameId);
+  cardElementGetAtrr=cardElementId.getAttribute("style","-webkit-filter");
+
+if (cardElementGetAtrr=="width: 20rem;-webkit-filter:grayscale(100%)") {
+    cardElementId.setAttribute("style","width: 20rem;-webkit-filter:grayscale(0%)");
+    inputCard=document.getElementById(nameIdCheck);
+    inputCard.checked = true;
+}else {
+  cardElementId.setAttribute("style","width: 20rem;-webkit-filter:grayscale(100%)");
+  inputCard=document.getElementById(nameIdCheck);
+  inputCard.checked = false;
+}
+ };
+
+
 // Javascript just for Demo purpose, remove it from your project
 nowuiKitDemo = {
   checkScrollForParallax: debounce(function() {
