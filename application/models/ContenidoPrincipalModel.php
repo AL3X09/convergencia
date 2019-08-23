@@ -137,7 +137,7 @@ class ContenidoPrincipalModel extends CI_Model {
  function listarContenidos()
  {
      $query = $this->db->get('contenido');
-     return $query->result();
+     return $query->row();
  }
 
  public function listarContenidos1() {

@@ -29,14 +29,12 @@ class Welcome extends CI_Controller {
 	{
 		$ContenidoPrincipal = new ContenidoPrincipalModel();
 	
-		$retorno = $ContenidoPrincipal->listarContenidos();
-		print_r($retorno);
-
-		/**$this->load->view('welcome_message');*/
+		$data['contenido'] = $ContenidoPrincipal->listarContenidos();
+		//print_r($data);
 		$this->load->helper('url');
 		$this->load->view('header');
 		$this->load->view('nav');
-		$this->load->view('main',$retorno);
+		$this->load->view('main',$data);
 		$this->load->view('footer');
 	}
 }
