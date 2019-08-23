@@ -22,6 +22,16 @@
 
       <div class="section section-pagination">
         <div class="container">
+<?php
+echo $retorno;
+        foreach ($retorno as $row)
+        {
+          echo $row;
+          echo $row->title;
+          echo $row->name;
+          echo $row->body;
+        }
+?>
 
            <!-- Section Temas de interes -->
 
