@@ -45,18 +45,18 @@
         <nav>
           <ul>
             <li>
-              <a href="https://www.creative-tim.com">
-                Creative Tim
+              <a href="<?php echo base_url(); ?>nosotros">
+                Nosotros
               </a>
             </li>
             <li>
-              <a href="http://presentation.creative-tim.com">
-                About Us
+              <a href="<?php echo base_url(); ?>terminos">
+                Terminos y Condiciones
               </a>
             </li>
             <li>
-              <a href="http://blog.creative-tim.com">
-                Blog
+              <a href="<?php echo base_url(); ?>politicas">
+                Politicas de privacidad
               </a>
             </li>
           </ul>
@@ -65,8 +65,8 @@
           &copy;
           <script>
             document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-          </script>, Designed by
-          <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+          </script>, Desiñado por
+          <a href="https://www.invisionapp.com" target="_blank">Invision</a>. y
           <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
         </div>
       </div>
