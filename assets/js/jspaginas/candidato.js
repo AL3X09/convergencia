@@ -2,8 +2,6 @@
  * 
  */
 $(document).ready(function() {
-    //orm/public/_/items/tema
-    //public\uploads\_\originals
     listarTemas();
 });
 
