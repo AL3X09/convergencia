@@ -7,13 +7,13 @@
 
 
 
-<div class="row" id="listadodinamico">
+<div class="bd-example" id="listadodinamico">
 </div>
-<div class="row">
-	
-  
-  <div class="col-md-4">
-    <div id="tema1" class="card" onclick ="colorCambiar('tema1','checkTema1')" style="width: 20rem;-webkit-filter:grayscale(100%)">
+
+<!-- <div class="bd-example" data-example-id=""> -->
+
+  <!-- <div class="col-md-4"> -->
+    <!-- <div id="tema1" class="card" onclick ="colorCambiar('tema1','checkTema1')" style="width: 20rem;-webkit-filter:grayscale(100%)">
       <img class="card-img-top" src="https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title">Transporte</h4>
@@ -28,11 +28,11 @@
                </label>
               </div>
         </div>
-    </div>
-	</div>
+    </div> -->
+	<!-- </div> -->
 
-	<div class="col-md-4">
-    <div id="tema2" class="card" onclick ="colorCambiar('tema2','checkTema2')" style="width: 20rem;-webkit-filter:grayscale(100%)">
+	<!-- <div class="col-md-4"> -->
+    <!-- <div id="tema2" class="card" onclick ="colorCambiar('tema2','checkTema2')" style="width: 20rem;-webkit-filter:grayscale(100%)">
       <img class="card-img-top" src="https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title">Transporte</h4>
@@ -47,12 +47,12 @@
                </label>
               </div>
         </div>
-    </div>
-	</div>
+    </div> -->
+	<!-- </div> -->
 
 
-	<div class="col-md-4">
-    <div id="tema3" class="card" onclick ="colorCambiar('tema3','checkTema3')" style="width: 20rem;-webkit-filter:grayscale(100%)">
+ <!-- <div class="col-md-4"> -->
+    <!-- <div id="tema3" class="card" onclick ="colorCambiar('tema3','checkTema3')" style="width: 20rem;-webkit-filter:grayscale(100%)">
       <img class="card-img-top" src="https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title">Transporte</h4>
@@ -67,13 +67,13 @@
                </label>
               </div>
         </div>
-    </div>
-	</div>
+    </div> -->
+<!-- </div> -->
 
 
 
 
-</div>
+<!-- </div> -->
 
 
 
