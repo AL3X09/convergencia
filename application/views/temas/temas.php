@@ -6,9 +6,16 @@
           <h3 class="title">Temas de Interes</h3>
 
 
-
+<form action="" method="post">
+<hr>
 <div class="bd-example" id="listadodinamico">
+
+
+
+
 </div>
+<button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+</form>
 
 <!-- <div class="bd-example" data-example-id=""> -->
 
