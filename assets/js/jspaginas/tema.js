@@ -15,7 +15,7 @@ function listarTemas() {
       success: function (response) {
 
         $.each(response, function (i, v) {
-        console.log(v.descripcion);
+        
         $('#listadodinamico').append(
 
         
