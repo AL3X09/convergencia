@@ -18,4 +18,17 @@ class Login extends CI_Controller {
 		$this->load->view('sesion/footersesion');
 		
 	}
+
+	public function acceder()
+	{
+		header('Location: ' . base_url() . 'Tema');
+		
+	}
+
+	function cerrarSesion() {
+		session_start();
+		unset($_SESSION['usuario']);
+		header("Location: " . base_url() . "Welcome");
+	  }
+	
 }

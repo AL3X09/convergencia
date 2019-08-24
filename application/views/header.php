@@ -34,6 +34,8 @@
   <link href="<?php echo base_url(); ?>assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="<?php echo base_url(); ?>assets/demo/demo.css" rel="stylesheet" />
+   <!-- SET GLOBAL BASE URL -->
+   <script>var base_url = '<?php echo base_url() ?>';</script>
 </head>
 
 <body class="index-page sidebar-collapse">

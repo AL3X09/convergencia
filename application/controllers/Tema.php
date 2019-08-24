@@ -7,7 +7,7 @@ class Tema extends CI_Controller {
     public function __construct() {
         parent:: __construct();
         $this->load->helper(array('url', 'form', 'array', 'html'));
-        $this->load->model(array('', '',''));
+        $this->load->model(array('TemaModel', '',''));
     }
 
 	public function index()
@@ -18,4 +18,14 @@ class Tema extends CI_Controller {
 		$this->load->view('footer');
 		
 	}
+
+	public function listarTemas()
+	{
+		$temas = $this->TemaModel->listarTemas();
+		header('Content-type: application/json; charset=utf8');
+		echo json_encode($temas);
+		
+	}
+
+	
 }

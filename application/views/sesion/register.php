@@ -6,7 +6,10 @@
       <div class="container">
         <div class="col-md-4 ml-auto mr-auto">
           <div class="card card-login card-plain">
-            <form class="form" method="POST" action="">
+          <?php
+            // Open form and set URL for submit form
+            echo form_open('Register/registrar');
+          ?>
               <div class="card-header text-center">
                 <div class="logo-container">
                   <img src="<?php echo base_url(); ?>assets/img/now-logo.png" alt="">
@@ -37,13 +40,17 @@
                   </div>
                   <input name="correo" id="correo" type="email" class="form-control" placeholder="Correo...">
                 </div>
-                <div class="input-group no-border input-lg">
+                <div class="input-group input-lg">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                       <i class="now-ui-icons users_circle-08"></i>
                     </span>
                   </div>
-                  <input name="localidad" id="localidad" type="select" class="form-control" placeholder="Correo...">
+
+                  <?php
+                    echo form_dropdown('localidad', $municipio, '', 'class="form-control"');
+                  ?>
+
                 </div>
                 <div class="input-group no-border input-lg">
                   <div class="input-group-prepend">
@@ -59,17 +66,21 @@
                       <i class="now-ui-icons text_caps-small"></i>
                     </span>
                   </div>
-                  <input name="password" id="password" type="text" placeholder="Contraseña..." class="form-control" />
+                  <input name="password" id="password" type="password" placeholder="Contraseña..." class="form-control" />
                 </div>
               </div>
               <div class="card-footer text-center">
                 <button href="#" type="submit" class="btn btn-primary btn-round btn-lg btn-block">Crear cuenta</button>
                 <div class="pull-left">
                   <h6>
-                    <a href="<?php echo base_url(); ?>/Login" class="link">iniciar sesión</a>
+                    <a href="<?php echo base_url(); ?>Login" class="link">iniciar sesión</a>
                   </h6>
                 </div>
-            </form>
+                
+              <?php 
+              // Close Form
+              echo form_close();
+              ?>
             </div>
           </div>
         </div>
