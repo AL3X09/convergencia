@@ -21,10 +21,17 @@ class Tema extends CI_Controller {
 
 	public function listarTemas()
 	{
-		$temas = $this->TemaModel->listarTemas();
+		$result = $this->TemaModel->listarTemas();
 		header('Content-type: application/json; charset=utf8');
-		echo json_encode($temas);
-		
+		echo json_encode($result);
+	}
+
+	//public function listarTemasXNombre(idsuer)
+	public function listarTemasXNombre()
+	{
+		$result = $this->TemaModel->listarTemasXNombre();
+		header('Content-type: application/json; charset=utf8');
+		echo json_encode($result);
 	}
 
 	

@@ -20,6 +20,13 @@ class TemaModel extends CI_Model {
       $query=$this->db->get();
       return $data=$query->result_array();
  }
+ function listarTemasXNombre()
+ {
+      $this->db->select('tema.id,tema.nombre');
+      $this->db->from('tema');
+      $query=$this->db->get();
+      return $data=$query->result_array();
+ }
 
  function listarTemas1()
  {

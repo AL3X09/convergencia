@@ -12,10 +12,10 @@ class Pregunta extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('headercontent');
-		$this->load->view('navsesion');
-		$this->load->view('pregunta/pregunta');
-		$this->load->view('footersesion');
+		$this->load->view('header');
+		$this->load->view('interno/nav');
+		$this->load->view('preguntas/preguntas');
+		$this->load->view('interno/footer');
 	}
 
 	public function listarPreguntas()
@@ -26,7 +26,7 @@ class Pregunta extends CI_Controller {
 		
 	}
 
-	public function listarPreguntasXTema()
+	public function listarPreguntasXTema() 
 	{
 		$result = $this->PreguntaModel->listarPreguntasXTema();
 		header('Content-type: application/json; charset=utf8');
