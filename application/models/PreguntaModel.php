@@ -35,7 +35,9 @@ class PreguntaModel extends CI_Model {
  // loop through the types e.g. the parents
  foreach( $result as $key => $row )
  {
-  
+    
+    //array_push($row, $row['preguntas'] = array());
+    //print_r($row);
      // add the "examples" e.g. the children to the result array
      $this->db->distinct();
      $this->db->select('pregunta.*');
@@ -43,25 +45,24 @@ class PreguntaModel extends CI_Model {
      $this->db->join('respuesta', ' pregunta.id = respuesta.fk_pregunta');
      $this->db->where('pregunta.fk_tema',$row['id']);
      $query2=$this->db->get();
+     //$row['pregunta'] = array();
      $result2 = $query2->result_array();
-     
+     //$result[$key][$key2] = $row2;
      //$result['preguntas'] =$query2->result_array();
      // loop through the types e.g. the parents
      foreach( $result2 as $key2 => $row2)
            {
-            //echo $key2;
-            //$row2['respuestas'] = array('');
-            //$result[$key]['preguntas'] = array('');
-            //echo $key;
-
+            
+            //print_r($row2);
             $this->db->distinct();
             $this->db->select('respuesta.*');
             $this->db->from('respuesta');
             $this->db->join('pregunta', ' respuesta.fk_pregunta = pregunta.id');
-            $this->db->where('respuesta.fk_pregunta',$row['id']);
+            $this->db->where('respuesta.fk_pregunta',$row2['id']);
             $query3=$this->db->get();
             $row2['respuestas'] = $query3->result_array();
-            $result[$key][$key2] = $row2;
+            //$result[$key2]['preguntas'] = $row2;
+            $result[$key]['preguntas'][$key2] = $row2;
 
       }
 

@@ -13,9 +13,9 @@ class Tema extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header');
-		$this->load->view('nav_interno');
+		$this->load->view('interno/nav');
 		$this->load->view('temas/temas');
-		$this->load->view('footer');
+		$this->load->view('interno/footer');
 		
 	}
 

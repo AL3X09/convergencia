@@ -61,9 +61,10 @@ function listarPregunas(temaid) {
         success: function(response) {
 
             $.each(response, function(i, v) {
-                console.log(v);
+
                 cont = i + 1;
-                //fk_tema
+
+
                 $("#listapreguntas").append(
 
                     '<div class="accordion" id="accordion_' + cont + '">' +
@@ -77,8 +78,15 @@ function listarPregunas(temaid) {
                     '</div>' +
                     '<div id="collapse_' + cont + '" class="collapse" aria-labelledby="heading_' + cont + '" data-parent="#listapreguntas">' +
                     '<div class="card-body" id="tema_' + v.id + '">' +
-                    //
-                    v[i]['pregunta'] +
+                    //rrecorro preguntas
+                    //$.each(v.preguntas, function(ip, p) {
+                    v.preguntas.forEach(function(word) {
+                        console.log(word);
+
+
+                        //console.log(p.pregunta);
+                        word.pregunta
+                    }) +
                     '</div>' +
                     '</div>' +
                     '</div>'
