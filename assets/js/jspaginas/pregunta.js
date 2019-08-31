@@ -80,7 +80,7 @@ function listarPregunas(temaid) {
                 $.each(v.preguntas, function(ip, p) {
                     //console.log(p);
                     conte += '<div class="form-group">' +
-                        '<label for="exampleInputEmail1">' + p.pregunta + '</label>' +
+                        '<label for="' + p.pregunta + '">' + p.pregunta + '</label>' +
 
                         '</div>';
 
@@ -88,12 +88,12 @@ function listarPregunas(temaid) {
                         //console.log(p.pregunta);
                         conte += '<div class="form-check form-check-radio">' +
                             '<label class="form-check-label">' +
-                            '<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >' +
+                            '<input class="form-check-input" type="radio" name="' + p.pregunta + '" id="exampleRadios' + q + '" value="option1" >' +
                             '<span class="form-check-sign"></span>' +
                             q.respuesta +
                             '</label>' +
-                            '</div>'
-                        '</div>';
+                            '</div>' +
+                            '</div>';
 
                     })
                 })
