@@ -72,7 +72,7 @@ class Register extends CI_Controller {
 			}
 		}
 	  
-		$this->session->set_flashdata('success', $mensaje->msg);
+		$this->session->set_flashdata('success', $mensaje['msg']);
 	  //$this->load->view('register');
 	  //header('Content-type: application/json; charset=utf8');
 	  //echo json_encode($mensaje);
