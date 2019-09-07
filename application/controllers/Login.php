@@ -38,49 +38,7 @@ class Login extends CI_Controller {
 		header("Location: " . base_url() . "Welcome");
 	  }
 
-	function registar() {
-	  //$aspirante = new usu();
-    //convierto los nombres y apellidos a minusculas
-    $aspirante->Nombres = mb_strtolower($_POST['nombres'], 'UTF-8');
-    $aspirante->Primer_Apellido = mb_strtolower($_POST['apellidos'], 'UTF-8');
-    $aspirante->Correo = mb_strtolower($_POST['correo'], 'UTF-8');
-    //$aspirante= array()
-	$aspirante->fkNacionalidad = $_POST['fklocalidad'];
-	$aspirante->Usuario = mb_strtolower($_POST['usuario'], 'UTF-8');
-	$aspirante->Contrasenia = $_POST['contrasenia'];
-    $aspirante->fKEstado = 'Activo';
-    //cosulto el modelo nuevamente para ratificar que realmente el numero de isentificacion no se encuentre registrado
-	$euser = $this->TbaspirantesModel->existeUsuario($aspirante->Usuario);
-	$ecorreo = $this->TbaspirantesModel->existeUsuario($aspirante->Correo);
-    if ($euser){ // si el numero de identifiacacion del aspirante ya existe no lo dejo insertar
-      $mensaje = array(
-          'msg' => 'El numero de identificación ya se encuentra inscrito para un proceso de incorporación.',
-          'tipo' => 'error'
-        );
-    }else if($ecorreo) {
-		$mensaje = array(
-			'msg' => 'No cumple los requisitos para aplicar al proceso.',
-			'tipo' => 'error'
-		  );
-	}// si el numero de identifiacacion del aspirante no existe permito la insercion
-    //valido que todos los filtros necesarios tengan datos
-	else{
-
-			if ($_POST['nombres'] != NULL and $_POST['apellidos'] != NULL and $_POST['correo'] != NULL and $_POST['fklocalidad'] != NULL and $_POST['usuario'] != NULL and $_POST['contrasenia'] != NULL) {
-
-			$this->TbaspirantesModel->insertar($aspirante);
-
-		  }else {
-			$mensaje = array(
-			  'msg' => 'Debe seleccionar todos los filtros.',
-			  'tipo' => 'error'
-			);
-		  }
-	  }
-    
-    header('Content-type: application/json; charset=utf8');
-    echo json_encode($mensaje);
-  }
+	
   
 	
 }

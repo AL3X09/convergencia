@@ -6,9 +6,17 @@
       <div class="container">
         <div class="col-md-4 ml-auto mr-auto">
           <div class="card card-login card-plain">
+
+          <?php 
+            if($this->session->flashdata('success'))
+            {
+              echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('success').'</div>';
+            }	
+  				?>
+
           <?php
             // Open form and set URL for submit form
-            echo form_open('Register/registrar');
+            echo form_open('Register/registrar',array('id'=>'formregistro',));
           ?>
               <div class="card-header text-center">
                 <div class="logo-container">
@@ -22,7 +30,7 @@
                       <i class="now-ui-icons users_circle-08"></i>
                     </span>
                   </div>
-                  <input name="nombres" id="nombres" type="text" class="form-control" placeholder="Nombres...">
+                  <input name="nombres" id="nombres" type="text" class="form-control" placeholder="Nombres..." required>
                 </div>
                 <div class="input-group no-border input-lg">
                   <div class="input-group-prepend">
@@ -30,7 +38,7 @@
                       <i class="now-ui-icons users_circle-08"></i>
                     </span>
                   </div>
-                  <input name="apellidos" id="apellidos" type="text" class="form-control" placeholder="Apellidos...">
+                  <input name="apellidos" id="apellidos" type="text" class="form-control" placeholder="Apellidos..." required>
                 </div>
                 <div class="input-group no-border input-lg">
                   <div class="input-group-prepend">
@@ -38,7 +46,7 @@
                       <i class="now-ui-icons users_circle-08"></i>
                     </span>
                   </div>
-                  <input name="correo" id="correo" type="email" class="form-control" placeholder="Correo...">
+                  <input name="correo" id="correo" type="email" class="form-control" placeholder="Correo..." required>
                 </div>
                 <div class="input-group input-lg">
                   <div class="input-group-prepend">
@@ -48,7 +56,7 @@
                   </div>
 
                   <?php
-                    echo form_dropdown('localidad', $municipio, '', 'class="form-control"');
+                    echo form_dropdown('localidad', $municipio, '', 'class="form-control" required');
                   ?>
 
                 </div>
@@ -58,7 +66,7 @@
                       <i class="now-ui-icons users_circle-08"></i>
                     </span>
                   </div>
-                  <input name="usuario" id="usuario" type="text" class="form-control" placeholder="Usuario...">
+                  <input name="usuario" id="usuario" type="text" class="form-control" placeholder="Usuario..." required/>
                 </div>
                 <div class="input-group no-border input-lg">
                   <div class="input-group-prepend">
@@ -66,11 +74,20 @@
                       <i class="now-ui-icons text_caps-small"></i>
                     </span>
                   </div>
-                  <input name="password" id="password" type="password" placeholder="Contraseña..." class="form-control" />
+                  <input name="password" id="password" type="password" placeholder="Contraseña..." class="form-control" required/>
                 </div>
+                <div class="input-group no-border input-lg">
+                
               </div>
+             
               <div class="card-footer text-center">
-                <button href="#" type="submit" class="btn btn-primary btn-round btn-lg btn-block">Crear cuenta</button>
+                  <div class="pull-left">
+                    <div id="errores"></div>
+              </div>
+
+              <div class="card-footer text-center">
+                <input type="submit" value="Crear cuenta" class="btn btn-primary btn-round btn-lg btn-block">
+                
                 <div class="pull-left">
                   <h6>
                     <a href="<?php echo base_url(); ?>Login" class="link">iniciar sesión</a>
