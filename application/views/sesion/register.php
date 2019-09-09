@@ -87,17 +87,19 @@
 
               <div class="card-footer text-center">
                 <input type="submit" value="Crear cuenta" class="btn btn-primary btn-round btn-lg btn-block">
+              </div>
                 
-                <div class="pull-left">
-                  <h6>
-                    <a href="<?php echo base_url(); ?>Login" class="link">iniciar sesión</a>
-                  </h6>
-                </div>
                 
               <?php 
               // Close Form
               echo form_close();
               ?>
+
+                <div class="pull-left">
+                  <h6>
+                    <a href="<?php echo base_url(); ?>Login" class="link">iniciar sesión</a>
+                  </h6>
+                </div>
             </div>
           </div>
         </div>

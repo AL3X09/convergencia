@@ -27,22 +27,45 @@ class TemaModel extends CI_Model {
       $query=$this->db->get();
       return $data=$query->result_array();
  }
+/**
+   * 
+   * @param type $usuario
+   * inserto en tabla usaurios
+   */
+  public function insertar($pkuser,$pktema) {
+    $sql = "INSERT INTO 
+             usuario_tema(
+              fk_usuario,
+              fk_tema,
+              fecha_modifica
+        ) 
+        VALUES (?,?, CURRENT_TIMESTAMP())";
 
- function listarTemas1()
- {
-     $query = $this->db->get('tema');
-     $this->db->join('directus_files', 'directus_files.id = tema.imagen');
-     return $result = $query->result_array();
+    try {
+      
+      //$mysqli->set_charset('utf8');
+      $stmt = $this->db->conn_id->prepare($sql);
+      $stmt->bind_param('ii', $pkuser, $pktema);
+      $pkuser = $pkuser;
+      $pktema = $pktema;
+      $stmt->execute();
+      $ultimo_id_generado = $stmt->insert_id;
+      $lineas_afectadas = $stmt->affected_rows;
+      $stmt->close();
+      if ($lineas_afectadas > 0) {
+          $r = true;
+        } else {
+          $r = false;
+        }
+    } catch (Exception $ex) {
+      $stored_exc = $ex;
+      print $ex;
+      $r = false;
+    }
 
-     /*$muni_position = array(); 
-     foreach($result as $r) { 
-         $muni_position[$r['id']] = $r['nombre']; 
-     } 
-     $muni_position[''] = 'Seleccione una localidad...'; 
-     return $muni_position; //**/
- }
+    return $r;
+  }
 
- 
 }
 
 

@@ -7,7 +7,7 @@ class Login extends CI_Controller {
     public function __construct() {
         parent:: __construct();
         $this->load->helper(array('url', 'form', 'array', 'html'));
-        $this->load->model(array('', '',''));
+        $this->load->model(array('UsuarioModel', '',''));
 	}
 	
 	public function removeCache() {
@@ -19,6 +19,7 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
+		$this->removeCache();
 		$this->load->view('sesion/headersesion');
 		$this->load->view('sesion/navsesion');
 		$this->load->view('sesion/login');
@@ -26,11 +27,33 @@ class Login extends CI_Controller {
 		
 	}
 
-	public function acceder()
-	{
-		header('Location: ' . base_url() . 'Tema');
+	function acceder() {
+		$this->removeCache();
+		$Tbuario = new UsuarioModel();
+		//$key = $this->encryption->create_key(16);
+		$Nombre_usua = mb_strtolower($_POST['usuario'], 'UTF-8');
+		$Contrasena_usua = $_POST['password'];
 		
-	}
+		//$datos = $Tbuario->verificarAspirante($Nombre_usua);
+		
+			$usuario = $this->UsuarioModel->verificarAspirante($Nombre_usua);
+			if (($usuario->usuario != '' && $usuario->contrasenia != '') && ($usuario->usuario == $Nombre_usua && $this->encrypt->decode($usuario->contrasenia) == $Contrasena_usua)) {
+			  
+			  if ($usuario->estado=='Activo') {
+				session_start();
+				$_SESSION ['usuario'] = serialize($usuario);
+				  header('Location: ' . base_url() . 'Tema');
+				  ob_end_flush();
+			  } else {
+				session_destroy();
+				$this->index();
+			  }
+			} else {
+				session_destroy();
+				$this->index();
+			}
+		
+	  }
 
 	function cerrarSesion() {
 		session_start();

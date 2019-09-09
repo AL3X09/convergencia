@@ -8,7 +8,6 @@ class Register extends CI_Controller {
         parent:: __construct();
         $this->load->helper(array('url', 'form', 'array', 'html'));
 		$this->load->model(array('MunicipioModel', 'UsuarioModel',''));
-		$this->load->library('form_validation');
 	}
 	
 	public function index()

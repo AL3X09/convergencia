@@ -1,4 +1,5 @@
 <?php
+include 'application/vo/tbusuarios.php';
 
 /*
  *
@@ -56,7 +57,7 @@ class UsuarioModel extends CI_Model {
              estado,
              fecha_modifica
         ) 
-        VALUES (?,?,?,?,?,?,?,?, CURDATE())";
+        VALUES (?,?,?,?,?,?,?,?, CURRENT_TIMESTAMP())";
 
     try {
       
@@ -89,8 +90,36 @@ class UsuarioModel extends CI_Model {
     return $r;
   }
 
+  /**
+   * @param type $id_aspirante
+   * @return type
+   * @author Alex Cifeuntes Sanchez
+   * metodo lista aspirantes faltantaes por decicion en junta
+   */
+
+  function verificarAspirante($Cuenta_User) {
+    $usuario = new tbusuarios();
+    
+
+    $sql = "SELECT *
+            FROM usuarios
+            WHERE usuario = ?  
+            AND estado = 'Activo'";
+
+    try {
+      $stmt = $this->db->conn_id->prepare($sql);
+      $stmt->bind_param('s', $Cuenta_User);
+      $stmt->execute();
+      $stmt->bind_result($usuario->id, $usuario->nombres, $usuario->apellidos, $usuario->correo, $usuario->localidad, $usuario->usuario, $usuario->contrasenia, $usuario->imagen, $usuario->estado, $usuario->fecha);
+      //$stmt->bind_result($id, $nombres, $apellidos, $correo, $localidad, $usuario, $contrasenia, $imagen, $estado, $fecha);
+      $stmt->fetch();
+      $stmt->close();
+    } catch (Exception $ex) {
+      print_r("Excepcion");
+      print $ex;
+    }
+    return $usuario;
+  }
+
  
 }
-
-
-

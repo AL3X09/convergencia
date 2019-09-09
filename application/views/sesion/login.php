@@ -13,7 +13,7 @@
           <div class="card card-login card-plain">
           <?php
             // Open form and set URL for submit form
-            echo form_open('Login/acceder');
+            echo form_open('Login/acceder',array('id'=>'formsesion',));
           ?>
               <div class="card-header text-center">
                 <div class="logo-container">
@@ -37,6 +37,11 @@
                   </div>
                   <input id="password" name="password" type="Password" placeholder="Contraseña..." class="form-control" required />
                 </div>
+              </div>
+              <div class="card-footer text-center">
+                  <div class="pull-left">
+                    <div id="errores"></div>
+                  </div>
               </div>
               <div class="card-footer text-center">
                 <button type="submit" class="btn btn-primary btn-round btn-lg btn-block">Iniciar sesión</button>

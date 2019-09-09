@@ -2,9 +2,15 @@
  * 
  */
 $(document).ready(function() {
-    //orm/public/_/items/tema
-    //public\uploads\_\originals
+
     listarTemas();
+
+    $("#formtema").on("submit", function() {
+        //Code: Action (like ajax...)
+        // validar();
+        return false;
+    })
+
 });
 
 function listarTemas() {
@@ -16,8 +22,7 @@ function listarTemas() {
 
             $.each(response, function(i, v) {
 
-                $('#listadodinamico').append(
-
+                $('#listadodinamico').prepend(
 
                     '<div id="tema' + v.id + '" class="card" onclick ="colorCambiar(' + comillaSimple + 'tema' + v.id + comillaSimple + ',' + comillaSimple + 'checkTema' + v.id + comillaSimple + ')" style="width: 20rem;-webkit-filter:grayscale(100%)">' +
                     '<div style="width: 320px; height: 180px;">' +
@@ -26,11 +31,11 @@ function listarTemas() {
                     '<div class="card-body">' +
                     '<h4 class="card-title">' + v.nombre + '</h4>' +
                     '<p class="card-text">' +
-                    v.descripcion +
+                    //v.descripcion +
                     '</p>' +
                     '<div class="form-check">' +
                     '<label class="form-check-label">' +
-                    '<input id="checkTema' + v.id + '" class="form-check-input" type="checkbox" value="' + v.id + '">' +
+                    '<input type="checkbox" name="checkTema[]" id="checkTema' + v.id + '" class="form-check-input" value="' + v.id + '">' +
                     'Seleccionar' +
                     '<span class="form-check-sign">' +
                     '<span class="check"></span>' +
@@ -53,6 +58,61 @@ function listarTemas() {
             'error'
         );
 
+    });
+
+}
+
+function validar() {
+
+    $("#formtema").validate({
+        rules: {
+            'checkTema[]': {
+                required: true,
+                minlength: 5
+            }
+        },
+        messages: {
+            'checkTema[]': {
+                required: "Debe seleccionar cinco temas",
+                maxlength: "Debe seleccionar maximo {0} temas"
+            },
+        },
+        errorElement: 'label',
+        errorPlacement: function(error, element) {
+            var type = $(element).attr("type");
+            error.addClass("form-error-message mb-0");
+            error.appendTo($("#errores"));
+        },
+        submitHandler: function() {
+            enviarDatos();
+        }
+    });
+
+}
+
+
+function enviarDatos() {
+
+    $.ajax({
+        type: "POST",
+        url: base_url + "Tema/insertar",
+        data: $('#formtema').serialize(),
+        beforeSend: function(xhr) {
+            alertify.alert('Espere', 'Almacenando Información!');
+        }
+    }).done(function(data) {
+
+        if (data.tipo = "success") {
+
+            setTimeout(function() {
+                document.location.href = base_url + "Pregunta/"
+            }, 2000);
+
+        } else {
+            alertify.alert(data.msg, function() {
+                location.reload();
+            });
+        }
     });
 
 }
