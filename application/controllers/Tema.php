@@ -57,7 +57,7 @@ class Tema extends CI_Controller {
 					{
 					if ($Tbuario->insertar($_POST['pkusuario'],$value)) {
 						$mensaje = array(
-						'msg' => 'Señor aspirante su registro ha sido exitoso; sus datos para alumno extraordinario de infantería de marína serán verificados en la inscripción.<br/>Por favor revise su correo para conocer sus datos de ingreso.',
+						'msg' => 'SSe alamceno la información de manera correcta.',
 						'tipo' => 'success'
 						);
 					} else {
@@ -70,7 +70,7 @@ class Tema extends CI_Controller {
 				}
 			}else {
 			  $mensaje = array(
-				'msg' => 'Se cerro la sesión abrutamente.',
+				'msg' => 'Se cerro la sesión de manera abrupta.',
 				'tipo' => 'error'
 			  );
 			}
@@ -78,44 +78,5 @@ class Tema extends CI_Controller {
 		header('Content-type: application/json; charset=utf8');
 		echo json_encode($mensaje);
 	}
-
-	function insertar2() {
-		$Tbuario->Correo = mb_strtolower($_POST['correo'], 'UTF-8');
-		$Tbuario->Fklocalidad = $_POST['localidad'];
-		$Tbuario->Usuario = mb_strtolower($_POST['usuario'], 'UTF-8');
-		$Tbuario->Contrasenia = $_POST['password'];
-		$Tbuario->Estado = 'Activo';
-		$Tbuario->Imagen = 'Img/Avatar.jpg';
-		//cosulto el modelo nuevamente para ratificar que realmente el numero de isentificacion no se encuentre registrado
-		
-		//valido que todos los filtros necesarios tengan datos
-		
-				if ($_POST['nombres'] != NULL and $_POST['pkusuario'] != NULL and $_POST['correo'] != NULL and $_POST['localidad'] != NULL and $_POST['usuario'] != NULL and $_POST['password'] != NULL) {
-					  if ($Tbuario->insertar($Tbuario)) {
-						  $mensaje = array(
-						  'msg' => 'Señor aspirante su registro ha sido exitoso; sus datos para alumno extraordinario de infantería de marína serán verificados en la inscripción.<br/>Por favor revise su correo para conocer sus datos de ingreso.',
-						  'tipo' => 'success'
-						  );
-					  } else {
-						  $mensaje = array(
-						  'msg' => 'Hubo un error en la base de datos, por favor intente registrarse más tarde.',
-						  'tipo' => 'error'
-						  );
-					  }
-			  }else {
-				$mensaje = array(
-				  'msg' => 'Debe seleccionar todos los filtros.',
-				  'tipo' => 'error'
-				);
-			  }
-		  
-		
-		  $this->session->set_flashdata('success', $mensaje['msg']);
-		//$this->load->view('register');
-		//header('Content-type: application/json; charset=utf8');
-		//echo json_encode($mensaje);
-		$this->index();
-	  }
-
 	
 }
