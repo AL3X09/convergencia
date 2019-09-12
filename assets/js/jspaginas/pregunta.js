@@ -133,6 +133,7 @@ function listarPregunas(temaid) {
      var lista = $("#listapreguntas");
      count2=0;
      var conte = '<div class="card card-nav-tabs card-plain">';
+     conte += '<form>';
      conte += ' <div class="card-header card-header-danger">';
      conte += '<div class="nav-tabs-navigation">';
      conte += '<div class="nav-tabs-wrapper">';
@@ -188,6 +189,8 @@ function listarPregunas(temaid) {
            conte += '</div>';
            conte += '</div>';
            conte += '</div>';
+           conte += '<button type="submit" class="btn btn-primary btn-lg">Ver Resultado</button>';
+           conte += '</form>';
            conte += '</div>';
            lista.append(conte);
         }
