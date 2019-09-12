@@ -160,7 +160,7 @@ function listarPregunas(temaid) {
              conte += '</div>';
              conte += '</div>'; 
              conte += '<div class="card-body">';
-             conte += '<div class="tab-content text-center">'; 
+             conte += '<div class="tab-content text-left">'; 
              //##############################################################################################  
              
              //RECORRER PREGUNTAS
@@ -179,7 +179,8 @@ function listarPregunas(temaid) {
                              '<span class="form-check-sign"></span>' +
                              q.respuesta +
                              '</label>' +
-                             '</div>' ;
+                             '</div>'+
+                             '<br>' ;
                      })
                     
 
