@@ -52,92 +52,20 @@ function listarTemaNombrexx(callback) {
     });
 }
 
-// function listarPregunas(temaid) {
-//     //co
-    
-//     var lista = $("#listapreguntas");
-    
-//     count2=0;
-//     var conte = '<div class="card card-nav-tabs card-plain id="card_Preguntas">';
-//      conte += '<div class="nav-tabs-navigation">';
-//      conte += '<div class="nav-tabs-wrapper">';
-//      conte += '<ul class="nav nav-tabs" data-tabs="tabs">';
-
-//     $.ajax({
-//         url: base_url + 'pregunta/listarPreguntasXTema',
-//         method: 'GET',
-//         success: function(response) {
-
-//             count2=count2+1
-//              $.each(response, function(a, vr) {
-//                  console.log(response);
-//                // console.log(count2);
-//                 if (count2==1) {
-//                 //console.log("entro");
-//                 conte += '<li class="nav-item">';
-//                 conte += '<a class="nav-link active" href="#'+vr.nombre+'" data-toggle="tab">'+vr.nombre+'</a>';
-//                 conte += '</li>';
-//                 }       
-//              })
-
-//              conte += '</ul>';
-//              conte += '</div>';
-//              conte += '</div>';
-//              conte += '</div>'; 
-//              conte += '<div class="card-body ">';
-//              conte += '<div class="tab-content text-center">';   
-
-//             $.each(response, function(i, v) {
-//                 cont = i + 1;
-//                 //rrecorro preguntas
-//                 $.each(v.preguntas, function(ip, p) {
-//                     //console.log(p);
-//                     conte += '<div class="tab-pane active" id="'+v.nombre+'">';                
-//                     conte += '<label for="' + p.pregunta + '">' + p.pregunta + '</label>';
-
-//                     $.each(p.respuestas, function(iq, q) {
-//                         //console.log(p.pregunta);
-//                         conte += '<div class="form-check form-check-radio">' +
-//                             '<label class="form-check-label">' +
-//                             '<input class="form-check-input" type="radio" name="' + p.pregunta + '" id="exampleRadios' + q + '" value="option1" >' +
-//                             '<span class="form-check-sign"></span>' +
-//                             q.respuesta +
-//                             '</label>' +
-//                             '</div>' +
-//                             '</div>';
-
-//                     })
-//                 })
-//                 conte += '</div>';
-//                 conte += '</div>';
-//                 conte += '</div>';
-//                 lista.append(conte);
-//             });
-
-
-//         }
-//     }).fail(function(jqXHR, textStatus, errorThrown) {
-//         //si retorna un error es por que el correo no existe imprimo en consola y recargo pagina de inicio de sesión    console.error(textStatus, errorThrown); 
-//         //console.error(textStatus, errorThrown); // Algo fallo
-//         Swal.fire(
-//             '',
-//             "Error al intertar traer los datos del tablero de control",
-//             'error'
-//         );
-
-//     });
-// }
 
 function listarPregunas(temaid) {
       
      var lista = $("#listapreguntas");
      count2=0;
-     var conte = '<div class="card card-nav-tabs card-plain">';
-     conte += '<form>';
+     var conte = '<form>';
+     
+     conte += '<div class="row">';
+     conte += '<div class="col-md-12">';
+     conte += '<div class="card">';
      conte += ' <div class="card-header card-header-danger">';
      conte += '<div class="nav-tabs-navigation">';
      conte += '<div class="nav-tabs-wrapper">';
-     conte += '<ul class="nav nav-tabs" data-tabs="tabs">';
+     conte += '<ul class="nav nav-tabs nav-tabs-neutral justify-content-center" data-background-color="orange">';
     $.ajax({
         url: base_url + 'pregunta/listarPreguntasXTema',
         method: 'GET',
@@ -191,8 +119,11 @@ function listarPregunas(temaid) {
            conte += '</div>';
            conte += '</div>';
            conte += '<button type="submit" class="btn btn-primary btn-lg">Ver Resultado</button>';
-           conte += '</form>';
+           
            conte += '</div>';
+           conte += '</div>';
+           conte += '</div>';
+           conte += '</form>';
            lista.append(conte);
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
