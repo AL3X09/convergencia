@@ -56,7 +56,6 @@
         <div class="content-center brand">
           <img class="n-logo" src="<?php echo base_url(); ?>assets/img/now-logo.png" alt="">
           <h1 class="h1-seo">Convergencia.</h1>
-          <h3>Slogan del sitio.</h3>
         </div>
         <h6 class="category category-absolute">Create by. Alexander Cifuentes & Erik Galindo
           <a href="https://www.creative-tim.com" target="_blank">
