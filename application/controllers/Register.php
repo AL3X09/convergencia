@@ -54,7 +54,7 @@ class Register extends CI_Controller {
 			  if ($_POST['nombres'] != NULL and $_POST['apellidos'] != NULL and $_POST['correo'] != NULL and $_POST['localidad'] != NULL and $_POST['usuario'] != NULL and $_POST['password'] != NULL) {
 					if ($Tbuario->insertar($Tbuario)) {
 						$mensaje = array(
-						'msg' => 'Señor aspirante su registro ha sido exitoso; sus datos para alumno extraordinario de infantería de marína serán verificados en la inscripción.<br/>Por favor revise su correo para conocer sus datos de ingreso.',
+						'msg' => 'Señor usuario su registro ha sido exitoso.',
 						'tipo' => 'success'
 						);
 					} else {

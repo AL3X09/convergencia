@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="<?php echo base_url(); ?>assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link btn btn-neutral" href="<?php echo base_url(); ?>/cerrar_sesion">
+            <a class="nav-link btn btn-neutral" href="<?php echo base_url(); ?>Login/cerrarSesion">
               <i class="now-ui-icons users_circle-08"></i>
               <p>Cerrar sesión</p>
             </a>

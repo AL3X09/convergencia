@@ -37,6 +37,7 @@ class Login extends CI_Controller {
 		//$datos = $Tbuario->verificarAspirante($Nombre_usua);
 		
 			$usuario = $this->UsuarioModel->verificarAspirante($Nombre_usua);
+			//echo $this->encrypt->decode($usuario->contrasenia);
 			if (($usuario->usuario != '' && $usuario->contrasenia != '') && ($usuario->usuario == $Nombre_usua && $this->encrypt->decode($usuario->contrasenia) == $Contrasena_usua)) {
 			  
 			  if ($usuario->estado=='Activo') {
