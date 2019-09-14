@@ -28,7 +28,6 @@ class PreguntaModel extends CI_Model {
   $this->db->from('tema');
   $this->db->join('pregunta', ' tema.id = pregunta.fk_tema');
   $query=$this->db->get();
-  //$result = $query->result_array();
   $result = $query->result_array();
  // loop through the types e.g. the parents
  foreach( $result as $key => $row )
