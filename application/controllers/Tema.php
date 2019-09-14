@@ -48,6 +48,14 @@ class Tema extends CI_Controller {
 		echo json_encode($result);
 	}
 
+	/*public function listarTemasXNombreXUsuario()
+	{
+		$fk_usuario = $_POST['pkusuario'];
+		$result = $this->TemaModel->listarTemasXNombreXUsuario($fk_usuario);
+		header('Content-type: application/json; charset=utf8');
+		echo json_encode($result);
+	}*/
+
 	function insertar() {
 		$Tbuario = new TemaModel();
 		//print_r($_POST);

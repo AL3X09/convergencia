@@ -27,6 +27,18 @@ class TemaModel extends CI_Model {
       $query=$this->db->get();
       return $data=$query->result_array();
  }
+
+ function listarTemasXNombreXUsuario($fk_usuario)
+ {
+
+      $this->db->select('tema.id,tema.nombre');
+      $this->db->from('tema');
+      $this->db->join('usuario_tema', ' tema.id = usuario_tema.fk_tema');
+      $this->db->where('usuario_tema.fk_usuario',$fk_usuario);
+      $query=$this->db->get();
+      return $data=$query->result_array();
+ }
+
 /**
    * 
    * @param type $usuario
