@@ -3,13 +3,17 @@
  */
 $(document).ready(function() {
     listarPregunas();
+
+    /*$("#formrespuestas").on("submit", function() {
+        return false;
+        EnviarRespuesta();
+    })*/
+
 });
 
 //eliminar
 function listarTemaNombrexx(callback) {
     //co
-
-    //var pkusuario = $("#pkusuario").val();
     $.ajax({
         url: base_url + 'tema/listarTemasXNombreXUsuario',
         method: 'GET',
@@ -38,12 +42,12 @@ function listarTemaNombrexx(callback) {
 function listarPregunas() {
 
     var pkusuario = $("#pkusuario").val();
-    console.log(pkusuario);
-    var lista = $("#listapreguntas");
-    count2 = 0;
-    var conte = '<form>';
 
-    conte += '<div class="row">';
+    var lista = $("#formrespuestas");
+    count2 = 0;
+    //var conte = '<form id="formrespuestas" onsubmit="validar()">';
+
+    var conte = '<div class="row">';
     conte += '<div class="col-md-12">';
     conte += '<div class="card">';
     conte += '<div class="card-header card-header-danger">';
@@ -86,9 +90,10 @@ function listarPregunas() {
 
                     conte += '<p>' + p.pregunta + '</p>';
                     $.each(p.respuestas, function(iq, q) {
+                        //console.log(iq);
                         conte += '<div class="form-check form-check-radio">' +
                             '<label class="form-check-label">' +
-                            '<input class="form-check-input" type="radio" name="' + p.pregunta + '" id="exampleRadios' + q + '" value="option1" >' +
+                            '<input class="form-check-input" type="radio" name="' + p.id + '" id="exampleRadios' + q.id + '" value="' + q.id + '" required>' +
                             '<span class="form-check-sign"></span>' +
                             q.respuesta +
                             '</label>' +
@@ -96,20 +101,80 @@ function listarPregunas() {
                             '<br>';
                     })
 
-
                 })
                 conte += '</div>';
             })
             conte += '</div>';
             conte += '</div>';
             conte += '</div>';
+            conte += '<div class="card-footer text-center">';
+            conte += '<div class="pull-left">';
+            conte += '<div id="errores"></div>';
+            conte += '</div>';
+            conte += '</div>';
+            conte += '<div class="input-group no-border input-lg">';
+            conte += '<input name="pkusuario" id="pkusuario" type="hidden" class="form-control" value="' + pkusuario + '" required/>';
+            conte += '</div>';
             conte += '<button type="submit" class="btn btn-primary btn-lg">Ver Resultado</button>';
-
             conte += '</div>';
             conte += '</div>';
             conte += '</div>';
             conte += '</form>';
             lista.append(conte);
+        }
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        //si retorna un error es por que el correo no existe imprimo en consola y recargo pagina de inicio de sesión    console.error(textStatus, errorThrown); 
+        //console.error(textStatus, errorThrown); // Algo fallo
+        Swal.fire(
+            '',
+            "Error al intertar traer los datos del tablero de control",
+            'error'
+        );
+
+    });
+}
+
+function validarresp() {
+
+
+    /*$("#formrespuestas").validate({
+        rules: {
+
+        },
+        messages: {
+            //'checkTema[]': {
+            required: "Debe seleccionar completar todas las respuestas",
+            //},
+        },
+        errorElement: 'label',
+        errorPlacement: function(error, element) {
+            var type = $(element).attr("type");
+            error.addClass("form-error-message mb-0");
+            error.appendTo($("#errores"));
+        },
+        submitHandler: function() {
+            EnviarRespuesta();
+        }
+    });*/
+
+}
+
+
+//envio respuestas
+function EnviarRespuesta() {
+    console.log('entra');
+    //co
+    $.ajax({
+        url: base_url + 'Pregunta/InsertarXusuario',
+        method: 'POST',
+        data: $("#formrespuestas").serialize(),
+        success: function(response) {
+
+            $.each(response, function(i, v) {
+                //test(v.id);
+
+            });
+
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
         //si retorna un error es por que el correo no existe imprimo en consola y recargo pagina de inicio de sesión    console.error(textStatus, errorThrown); 

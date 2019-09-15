@@ -7,11 +7,14 @@
                 <input name="pkusuario" id="pkusuario" type="hidden" class="form-control"
                     value="<?php echo $usuario['id']; ?>" required />
             </div>
-            <!-- Section Temas de interes -->
+            <!-- <div class="bd-example" id="listapreguntas">
+            </div>Section Temas de interes -->
             <h3 class="title">Preguntas por Temas de Interes</h3>
 
-            <div class="bd-example" id="listapreguntas">
-            </div>
+            
+            <form id="formrespuestas" onsubmit="EnviarRespuesta()">
+            </form>
+            
 
 
 

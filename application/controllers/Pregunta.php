@@ -56,4 +56,14 @@ class Pregunta extends CI_Controller {
 		echo json_encode($result);
 		
 	}
+
+	public function InsertarXusuario() 
+	{
+		print_r($_POST);
+		//$fk_usuario = $_POST['pkusuario'];
+		//$result = $this->PreguntaModel->listarPreguntasXUsuario($fk_usuario);
+		//header('Content-type: application/json; charset=utf8');
+		//echo json_encode($result);
+		
+	}
 }
