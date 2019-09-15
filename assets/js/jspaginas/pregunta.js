@@ -68,7 +68,7 @@ function listarPregunas() {
                     conte += '<li class="nav-item">';
                     // ACA  pinta el primer enlace 'Active'
                     // conte += '<a class="nav-link active" href="#'+v.nombre+'" data-toggle="tab">'+v.nombre+'</a>';
-                    conte += '<a class="nav-link" href="#' + v.nombre + '" data-toggle="tab">' + v.nombre + '</a>';
+                    conte += '<a class="nav-link" href="#' + quitSpacesOfAstring(v.nombre) + '" data-toggle="tab">' + v.nombre + '</a>';
                     conte += '</li>';
                 }
             })
@@ -82,7 +82,7 @@ function listarPregunas() {
 
             //RECORRER PREGUNTAS
             $.each(response, function(ie, vr) {
-                conte += '<div class="tab-pane" id="' + vr.nombre + '">';
+                conte += '<div class="tab-pane" id="' + quitSpacesOfAstring(vr.nombre) + '">';
                 //RECORRER RESPUESTAS
                 $.each(vr.preguntas, function(ip, p) {
                     //console.log(p);
@@ -133,6 +133,17 @@ function listarPregunas() {
 
     });
 }
+
+var quitSpacesOfAstring = function(str) {
+    var cadena = '';
+    var arrayString = str.split(' ');
+    for (var i = 0; i < arrayString.length; i++) {
+        if (arrayString[i] != "") {
+            cadena += arrayString[i];
+        }
+    }
+    return cadena;
+};
 
 function validarresp() {
 
