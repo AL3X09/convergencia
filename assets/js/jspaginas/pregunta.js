@@ -4,10 +4,10 @@
 $(document).ready(function() {
     listarPregunas();
 
-    /*$("#formrespuestas").on("submit", function() {
+    $("#formrespuestas").on("submit", function() {
         return false;
-        EnviarRespuesta();
-    })*/
+        //EnviarRespuesta();
+    })
 
 });
 
@@ -84,8 +84,9 @@ function listarPregunas() {
             $.each(response, function(ie, vr) {
                 conte += '<div class="tab-pane" id="' + quitSpacesOfAstring(vr.nombre) + '">';
                 //RECORRER RESPUESTAS
+
                 $.each(vr.preguntas, function(ip, p) {
-                    //console.log(p);
+
                     //conte += '<div class="tab-pane active" id="'+v.nombre+'">';       
 
                     conte += '<p>' + p.pregunta + '</p>';
@@ -93,7 +94,7 @@ function listarPregunas() {
                         //console.log(iq);
                         conte += '<div class="form-check form-check-radio">' +
                             '<label class="form-check-label">' +
-                            '<input class="form-check-input" type="radio" name="' + p.id + '" id="exampleRadios' + q.id + '" value="' + q.id + '" required>' +
+                            '<input class="form-check-input" type="radio" name="pregunta[' + p.id + ']" id="exampleRadios' + q.id + '" value="' + q.id + '" required>' +
                             '<span class="form-check-sign"></span>' +
                             q.respuesta +
                             '</label>' +
@@ -146,55 +147,60 @@ var quitSpacesOfAstring = function(str) {
 };
 
 function validarresp() {
+    console.log($("#errores"));
 
-
-    /*$("#formrespuestas").validate({
+    $("#formrespuestas").validate({
         rules: {
-
+            'pregunta[]': {
+                required: true
+            },
         },
         messages: {
-            //'checkTema[]': {
-            required: "Debe seleccionar completar todas las respuestas",
-            //},
+            'pregunta[]': {
+                required: "Debe completar todas las respuestas",
+            },
         },
         errorElement: 'label',
         errorPlacement: function(error, element) {
             var type = $(element).attr("type");
             error.addClass("form-error-message mb-0");
-            error.appendTo($("#errores"));
+            error.append($("#errores"));
         },
         submitHandler: function() {
             EnviarRespuesta();
         }
-    });*/
+    });
 
 }
 
 
 //envio respuestas
 function EnviarRespuesta() {
-    console.log('entra');
+
     //co
     $.ajax({
         url: base_url + 'Pregunta/InsertarXusuario',
         method: 'POST',
         data: $("#formrespuestas").serialize(),
+        beforeSend: function(xhr) {
+            alertify.alert('Espere', 'Almacenando Información!');
+        },
         success: function(response) {
 
             $.each(response, function(i, v) {
-                //test(v.id);
+                setTimeout(function() {
+                    document.location.href = base_url + "CandidatoPreferencia/"
+                }, 2000);
 
             });
 
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
         //si retorna un error es por que el correo no existe imprimo en consola y recargo pagina de inicio de sesión    console.error(textStatus, errorThrown); 
-        //console.error(textStatus, errorThrown); // Algo fallo
-        Swal.fire(
-            '',
-            "Error al intertar traer los datos del tablero de control",
-            'error'
-        );
+        console.error(textStatus, errorThrown); // Algo fallo
+        alertify.alert("Error al intertar traer los temas", function() {
+            alertify.error('OK');
+        });
 
     });
 }

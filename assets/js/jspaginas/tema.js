@@ -51,13 +51,10 @@ function listarTemas() {
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
         //si retorna un error es por que el correo no existe imprimo en consola y recargo pagina de inicio de sesión    console.error(textStatus, errorThrown); 
-        //console.error(textStatus, errorThrown); // Algo fallo
-        Swal.fire(
-            '',
-            "Error al intertar traer los datos del tablero de control",
-            'error'
-        );
-
+        console.error(textStatus, errorThrown); // Algo fallo
+        alertify.error("Error al intertar traer los temas", function() {
+            alertify.message('OK');
+        });
     });
 
 }

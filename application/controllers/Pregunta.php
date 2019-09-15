@@ -7,7 +7,7 @@ class Pregunta extends CI_Controller {
     public function __construct() {
         parent:: __construct();
         $this->load->helper(array('url', 'form', 'array', 'html'));
-        $this->load->model(array('PreguntaModel', '',''));
+        $this->load->model(array('PreguntaModel', 'RespuestaModel',''));
 	}
 	
 	public function removeCache() {
@@ -59,11 +59,35 @@ class Pregunta extends CI_Controller {
 
 	public function InsertarXusuario() 
 	{
-		print_r($_POST);
-		//$fk_usuario = $_POST['pkusuario'];
-		//$result = $this->PreguntaModel->listarPreguntasXUsuario($fk_usuario);
-		//header('Content-type: application/json; charset=utf8');
-		//echo json_encode($result);
+		
+		$TbRespues = new RespuestaModel();
+
+		if ($_POST['pkusuario'] != NULL) {
+
+			foreach($_POST['pregunta'] as $key => $value)
+			{
+			if ($TbRespues->insertar($_POST['pkusuario'],$value)) {
+				$mensaje = array(
+				'msg' => 'Se alamceno la información de manera correcta.',
+				'tipo' => 'success'
+				);
+			} else {
+				$mensaje = array(
+				'msg' => 'Hubo un error en la base de datos, por favor intente registrarse más tarde.',
+				'tipo' => 'error'
+				);
+			}
+			
+		}
+	}else {
+	  $mensaje = array(
+		'msg' => 'Se cerro la sesión de manera abrupta.',
+		'tipo' => 'error'
+	  );
+	}
+	
+	header('Content-type: application/json; charset=utf8');
+	echo json_encode($mensaje);
 		
 	}
 }

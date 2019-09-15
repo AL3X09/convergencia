@@ -12,7 +12,7 @@
             <h3 class="title">Preguntas por Temas de Interes</h3>
 
             
-            <form id="formrespuestas" onsubmit="EnviarRespuesta()">
+            <form id="formrespuestas" onsubmit="validarresp()">
             </form>
             
 

@@ -2,21 +2,7 @@
       <div class=" container ">
         <nav>
           <ul>
-            <li>
-              <a href="<?php echo base_url(); ?>nosotros">
-                Nosotros
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo base_url(); ?>terminos">
-                Terminos y Condiciones
-              </a>
-            </li>
-            <li>
-              <a href="<?php echo base_url(); ?>politicas">
-                Politicas de privacidad
-              </a>
-            </li>
+            
           </ul>
         </nav>
         <div class="copyright" id="copyright">

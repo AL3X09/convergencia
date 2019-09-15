@@ -65,7 +65,7 @@ class Tema extends CI_Controller {
 					{
 					if ($Tbuario->insertar($_POST['pkusuario'],$value)) {
 						$mensaje = array(
-						'msg' => 'SSe alamceno la información de manera correcta.',
+						'msg' => 'Se alamceno la información de manera correcta.',
 						'tipo' => 'success'
 						);
 					} else {
