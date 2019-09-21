@@ -58,19 +58,20 @@ class Tema extends CI_Controller {
 
 	function insertar() {
 		$Tbuario = new TemaModel();
-		//print_r($_POST);
-				
-				if ($_POST['pkusuario'] != NULL) {
-					foreach($_POST['checkTema'] as $key => $value)
-					{
-					if ($Tbuario->insertar($_POST['pkusuario'],$value)) {
+		$consect = $Tbuario->ultimoconsect_sesion();
+		//
+			if ($_POST['pkusuario'] != NULL) {
+				foreach($_POST['checkTema'] as $key => $value)
+				{
+					if ($Tbuario->insertar($_POST['pkusuario'],$value,$consect)) {
 						$mensaje = array(
 						'msg' => 'Se alamceno la información de manera correcta.',
-						'tipo' => 'success'
+						'tipo' => 'success',
+						'consect' => $consect
 						);
 					} else {
 						$mensaje = array(
-						'msg' => 'Hubo un error en la base de datos, por favor intente registrarse más tarde.',
+						'msg' => 'Hubo un error en la base de datos, por favor intente más tarde.',
 						'tipo' => 'error'
 						);
 					}
@@ -79,7 +80,8 @@ class Tema extends CI_Controller {
 			}else {
 			  $mensaje = array(
 				'msg' => 'Se cerro la sesión de manera abrupta.',
-				'tipo' => 'error'
+				'tipo' => 'error',
+				'consect' => $consec
 			  );
 			}
 			

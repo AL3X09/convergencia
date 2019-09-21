@@ -60,14 +60,16 @@ class PreguntaModel extends CI_Model {
 
 
 
- function listarPreguntasXUsuario($fk_usuario)
+ function listarPreguntasXUsuario($fk_usuario,$conser)
  {
 
   $this->db->distinct();
   $this->db->select('tema.id,tema.nombre');
   $this->db->from('tema');
   $this->db->join('usuario_tema', ' tema.id = usuario_tema.fk_tema');
+  $this->db->join('pregunta', 'tema.id = pregunta.fk_tema');
   $this->db->where(' usuario_tema.fk_usuario', $fk_usuario);
+  $this->db->where(' usuario_tema.conset_sesion', $conser);
   $query=$this->db->get();
   $result = $query->result_array();
  // loop through the types e.g. the parents
@@ -91,7 +93,6 @@ class PreguntaModel extends CI_Model {
      foreach( $result2 as $key2 => $row2)
            {
             
-            //print_r($row2);
             $this->db->distinct();
             $this->db->select('respuesta.*');
             $this->db->from('respuesta');
@@ -99,7 +100,6 @@ class PreguntaModel extends CI_Model {
             $this->db->where('respuesta.fk_pregunta',$row2['id']);
             $query3=$this->db->get();
             $row2['respuestas'] = $query3->result_array();
-            //$result[$key2]['preguntas'] = $row2;
             $result[$key]['preguntas'][$key2] = $row2;
 
       }

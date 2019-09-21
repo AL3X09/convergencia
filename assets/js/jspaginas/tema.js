@@ -95,14 +95,15 @@ function enviarDatos() {
         url: base_url + "Tema/insertar",
         data: $('#formtema').serialize(),
         beforeSend: function(xhr) {
-            alertify.alert('Espere', 'Almacenando Información!');
+            alertify.alert('Espere', 'Almacenando información de los temas por favor espere...');
         }
     }).done(function(data) {
 
         if (data.tipo = "success") {
-
+            //console.log(data);
+            //cargarpreguntas($('#pkusuario').val(), data.consect);
             setTimeout(function() {
-                document.location.href = base_url + "Pregunta/"
+                document.location.href = base_url + "Pregunta?se=" + data.consect;
             }, 2000);
 
         } else {
