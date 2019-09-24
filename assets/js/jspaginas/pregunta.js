@@ -42,6 +42,7 @@ function listarTemaNombrexx(callback) {
 function listarPregunas() {
 
     var pkusuario = $("#pkusuario").val();
+    var conser = $("#conser").val();
 
     var lista = $("#formrespuestas");
     count2 = 0;
@@ -57,7 +58,7 @@ function listarPregunas() {
     $.ajax({
         url: base_url + 'pregunta/listarPreguntasXUsuario',
         method: 'POST',
-        data: { pkusuario: pkusuario },
+        data: { pkusuario: pkusuario, conser: conser },
         success: function(response) {
 
             //########################################LISTAR TEMAS #########################################
@@ -147,7 +148,6 @@ var quitSpacesOfAstring = function(str) {
 };
 
 function validarresp() {
-    console.log($("#errores"));
 
     $("#formrespuestas").validate({
         rules: {
@@ -179,7 +179,7 @@ function EnviarRespuesta() {
 
     //co
     $.ajax({
-        url: base_url + 'Pregunta/InsertarXusuario',
+        url: base_url + 'Pregunta/ActualizarXusuario',
         method: 'POST',
         data: $("#formrespuestas").serialize(),
         beforeSend: function(xhr) {
@@ -189,7 +189,7 @@ function EnviarRespuesta() {
 
             $.each(response, function(i, v) {
                 setTimeout(function() {
-                    document.location.href = base_url + "CandidatoPreferencia/"
+                    //document.location.href = base_url + "CandidatoPreferencia/"
                 }, 2000);
 
             });

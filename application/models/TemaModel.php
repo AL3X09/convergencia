@@ -14,12 +14,16 @@ class TemaModel extends CI_Model {
   
   function listarTemas()
  {
+      $this->db->distinct('tema.id');
       $this->db->select('tema.*,directus_files.filename');
       $this->db->from('tema');
-      $this->db->join('directus_files', 'tema.imagen = directus_files.id ');
+      $this->db->join('directus_files', 'tema.imagen = directus_files.id');
+      $this->db->join('pregunta', 'tema.id = pregunta.fk_tema');
       $query=$this->db->get();
+      //print_r($query);
       return $data=$query->result_array();
  }
+
  function listarTemasXNombre()
  {
       $this->db->select('tema.id,tema.nombre');
@@ -39,19 +43,34 @@ class TemaModel extends CI_Model {
       return $data=$query->result_array();
  }
 
+ function ultimoconsect_sesion() {
+  //$query = $this->db->query("SELECT (conset_sesion)+1 AS val FROM convergencia.usuario_tema WHERE conset_sesion IS NOT NULL ORDER BY id DESC LIMIT 1");
+  $query = $this->db->query("SELECT CASE
+        WHEN COUNT(conset_sesion) = 0 THEN 1		
+          ELSE conset_sesion+1 
+          END AS val
+        FROM
+          convergencia.usuario_tema
+          ORDER BY id DESC LIMIT 1");
+
+  $ret = $query->row();
+  return $ret->val;
+ }
+
 /**
    * 
    * @param type $usuario
    * inserto en tabla usaurios
    */
-  public function insertar($pkuser,$pktema) {
+  public function insertar($pkuser,$pktema,$consect) {
     $sql = "INSERT INTO 
              usuario_tema(
               fk_usuario,
               fk_tema,
-              fecha_modifica
+              fecha_modifica,
+              conset_sesion
         ) 
-        VALUES (?,?, CURRENT_TIMESTAMP())";
+        VALUES (?,?, CURRENT_TIMESTAMP(),$consect)";
 
     try {
       
@@ -65,7 +84,37 @@ class TemaModel extends CI_Model {
       $lineas_afectadas = $stmt->affected_rows;
       $stmt->close();
       if ($lineas_afectadas > 0) {
+          
+          $query2 = $this->db->query("SELECT pregunta.id FROM convergencia.pregunta 
+          WHERE fk_tema = $pktema");
+         
+          if($query2->result() > 0 ){
+            
+            foreach ($query2->result() as $row)
+            {
+              //print_r($row);
+
+                  $sql2 = "INSERT INTO 
+                  usuario_respuesta(
+                    fk_usuario,
+                    fk_respuesta,
+                    fecha_modifica,
+                    conser_sesion
+                  ) 
+                  VALUES (?,$row->id, CURRENT_TIMESTAMP(),?)";
+                
+                  $stmt2 = $this->db->conn_id->prepare($sql2);
+                  $stmt2->bind_param('ii', $pkuser, $consect);
+                  $pkuser = $pkuser;
+                  $consect = $consect;
+                  $stmt2->execute();
+                  $stmt2->close();
+
+            }
+
+          }
           $r = true;
+
         } else {
           $r = false;
         }

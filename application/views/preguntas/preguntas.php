@@ -13,6 +13,11 @@
 
             
             <form id="formrespuestas" onsubmit="validarresp()">
+
+            <div class="input-group no-border input-lg">
+                  <input name="conser" id="conser" type="hidden" class="form-control" value="<?php echo intval($_GET['se']); ?>" required  />
+                </div>
+
             </form>
             
 
