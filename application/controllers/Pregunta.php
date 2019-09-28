@@ -104,7 +104,8 @@ class Pregunta extends CI_Controller {
 			if ($TbRespues->update($_POST['pkusuario'],$value,$key,$_POST['conser'])) {
 				$mensaje = array(
 				'msg' => 'Se alamceno la información de manera correcta.',
-				'tipo' => 'success'
+				'tipo' => 'success',
+				'consect' => $_POST['conser']
 				);
 			} else {
 				$mensaje = array(

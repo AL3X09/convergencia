@@ -47,7 +47,7 @@ class TemaModel extends CI_Model {
   //$query = $this->db->query("SELECT (conset_sesion)+1 AS val FROM convergencia.usuario_tema WHERE conset_sesion IS NOT NULL ORDER BY id DESC LIMIT 1");
   $query = $this->db->query("SELECT CASE
         WHEN COUNT(conset_sesion) = 0 THEN 1		
-          ELSE conset_sesion+1 
+          ELSE MAX(conset_sesion)+1 
           END AS val
         FROM
           convergencia.usuario_tema

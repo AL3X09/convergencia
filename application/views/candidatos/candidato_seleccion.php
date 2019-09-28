@@ -103,3 +103,7 @@
     </div>
 </div>
 </div>
+
+<div class="input-group no-border input-lg">
+                  <input name="pkusuario" id="pkusuario" type="hidden" class="form-control" value="<?php echo $usuario['id']; ?>" />
+                </div>

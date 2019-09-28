@@ -10,7 +10,7 @@
       </div>
       <div class="navbar-translate">
         <a class="navbar-brand" href="<?php echo base_url();?>" rel="tooltip" title="Volver a la pagina principal" data-placement="bottom">
-          CONVERGENCIA
+          Legoría
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar top-bar"></span>

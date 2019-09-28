@@ -17,7 +17,7 @@
           ?>
               <div class="card-header text-center">
                 <div class="logo-container">
-                  <img src="<?php echo base_url(); ?>assets/img/now-logo.png" alt="">
+                  <img src="<?php echo base_url(); ?>assets/img/Logo_app.png" alt="">
                 </div>
               </div>
               <div class="card-body">

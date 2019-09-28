@@ -9,7 +9,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="#" rel="tooltip" title="Msj" data-placement="bottom">
-          Convergencia
+          Legoría
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar top-bar"></span>
@@ -54,7 +54,7 @@
       </div>
       <div class="container">
         <div class="content-center brand">
-          <img class="n-logo" src="<?php echo base_url(); ?>assets/img/now-logo.png" alt="">
+          <img class="n-logo" src="<?php echo base_url(); ?>assets/img/Logo_app.png" alt="">
           <h1 class="h1-seo">Legoría.</h1>
         </div>
       </div>

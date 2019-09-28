@@ -185,20 +185,24 @@ function EnviarRespuesta() {
         beforeSend: function(xhr) {
             alertify.alert('Espere', 'Almacenando Información!');
         },
-        success: function(response) {
+        success: function(data) {
 
-            $.each(response, function(i, v) {
+            if (data.tipo = "success") {
                 setTimeout(function() {
-                    //document.location.href = base_url + "CandidatoPreferencia/"
+                    document.location.href = base_url + "hojaVidaCandidato?se=" + data.consect;
                 }, 2000);
 
-            });
+            } else {
+                alertify.alert(data.msg, function() {
+                    location.reload();
+                });
+            }
 
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
         //si retorna un error es por que el correo no existe imprimo en consola y recargo pagina de inicio de sesión    console.error(textStatus, errorThrown); 
         console.error(textStatus, errorThrown); // Algo fallo
-        alertify.alert("Error al intertar traer los temas", function() {
+        alertify.alert("Error al intertar enviar la información", function() {
             alertify.error('OK');
         });
 
