@@ -105,5 +105,8 @@
 </div>
 
 <div class="input-group no-border input-lg">
-                  <input name="pkusuario" id="pkusuario" type="hidden" class="form-control" value="<?php echo $usuario['id']; ?>" />
-                </div>
+ <input name="pkusuario" id="pkusuario" type="hidden" class="form-control" value="<?php echo $usuario['id']; ?>" />
+</div>
+<div class="input-group no-border input-lg">
+ <input name="conser" id="conser" type="hidden" class="form-control" value="<?php echo intval($_GET['se']); ?>" required  />
+</div>

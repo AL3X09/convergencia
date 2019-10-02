@@ -33,6 +33,7 @@
   <!--  JS Intenro-->
   <script src="<?php echo base_url(); ?>assets/js/jspaginas/tema.js" type="text/javascript"></script>  
   <script src="<?php echo base_url(); ?>assets/js/jspaginas/pregunta.js" type="text/javascript"></script>  
+  <script src="<?php echo base_url(); ?>assets/js/jspaginas/candidato.js" type="text/javascript"></script>  
   <script src="<?php echo base_url(); ?>assets/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
   <script>
     $(document).ready(function() {

@@ -1,18 +1,34 @@
 /**
  * 
  */
+var numerico = 0;
 $(document).ready(function() {
     GetCandidatosSeleccion();
 });
 
-function listarTemas() {
+function GetCandidatosSeleccion() {
+    var pkusuario = $("#pkusuario").val();
+    var conser = $("#conser").val();
 
     $.ajax({
-        url: base_url + 'tema/listarTemas',
-        method: 'GET',
+        url: base_url + 'hojaVidaCandidato/listarCandidatoSeleccion',
+        method: 'POST',
+        data: { pkusuario: pkusuario, conser: conser },
         success: function(response) {
 
             $.each(response, function(i, v) {
+                console.log(numerico);
+                if (v.val > numerico) {
+                    numerico = v.val;
+                    console.log('1-' + numerico);
+                    console.log('es mayor');
+
+                } else if (v.val === numerico) {
+                    console.log('2-' + numerico);
+                    console.log('es igual');
+                } else {
+                    console.log('es menor');
+                }
 
                 $('#listadodinamico').append(
 

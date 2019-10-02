@@ -7,7 +7,7 @@ class hojaVidaCandidato extends CI_Controller {
     public function __construct() {
         parent:: __construct();
         $this->load->helper(array('url', 'form', 'array', 'html'));
-      //  $this->load->model(array('ContenidoPrincipalModel',''));
+        $this->load->model(array('UsuarioModel','CandidatoModel'));
 	}
 	
 	public function removeCache() {
@@ -33,4 +33,15 @@ class hojaVidaCandidato extends CI_Controller {
 		$this->load->view('candidatos/candidato_seleccion',$data);
 		$this->load->view('interno/footer');
 	}
+
+	public function listarCandidatoSeleccion()
+	{
+		$fk_usuario = $_POST['pkusuario'];
+		$conser = $_POST['conser'];
+		$result = $this->CandidatoModel->listarCandidatoSeleccion($fk_usuario,$conser);
+		header('Content-type: application/json; charset=utf8');
+		echo json_encode($result);
+	}
+
+	
 }
