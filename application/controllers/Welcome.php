@@ -23,13 +23,14 @@ class Welcome extends CI_Controller {
     public function __construct() {
         parent:: __construct();
         $this->load->helper(array('url', 'form', 'array', 'html'));
-        $this->load->model(array('ContenidoPrincipalModel',''));
+        $this->load->model(array('ContenidoPrincipalModel','CandidatoModel'));
     }
 	public function index()
 	{
 		$ContenidoPrincipal = new ContenidoPrincipalModel();
-	
+		$Candidatos = new CandidatoModel();
 		$data['contenido'] = $ContenidoPrincipal->listarContenidos();
+		$data['candidatos'] = $Candidatos->listarCandidatos();
 		//print_r($data);
 		$this->load->helper('url');
 		$this->load->view('header');

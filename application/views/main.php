@@ -4,39 +4,41 @@
         <div class="container">
            <!-- Section Temas de interes -->
           <div class="row">
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-8 col-sm-12">
+                <?php
+                $cont = 0;
+                foreach ($contenido as $row)
+                {
+                  if ($cont > 0) {
+                    echo'<div class="col-md-12 col-sm-12">';
+                        echo $row;
+                    echo'</div>';
+                  }
+                  $cont ++;
+                }
+                ?>
+              </div>
+              <div class="col-md-4 col-sm-12">
               <?php
-                echo $contenido->introduccion;
-              ?>
+              foreach ($candidatos as $row)
+                {
+                  if($row['nombres'] != "Voto en Blanco"){
+                    echo'<div class="col-md-12 col-sm-12">';
+                        echo $row['nombres']." ".$row['apellidos'];
+                        echo "<br>";
+                        echo base_url();
+                        echo base_url().$row['filename'];
+                        echo $row['descripcion'];
+                    echo'</div>';
+                  }
+                }
+                ?>
+              </div>
             </div>
-            <div class="col-md-6 col-sm-12">
-              <?php
-                echo $contenido->objetivo;
-              ?>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              <?php
-                echo $contenido->contenido_1;
-              ?>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              <?php
-                echo $contenido->contenido_2;
-              ?>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              <?php
-                echo $contenido->contenido_3;
-              ?>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              <?php
-                echo $contenido->contenido_4;
-              ?>
-            </div>
-          </div>
+            
           <br>
         </div>
+
       </div>
 
 </div>

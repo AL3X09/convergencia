@@ -14,9 +14,9 @@ class CandidatoModel extends CI_Model {
   }
   
   function listarCandidatos(){
-      $this->db->select('usuarios.*,directus_files.filename');
-      $this->db->from('tema');
-      $this->db->join('directus_files', 'tema.imagen = directus_files.id ');
+      $this->db->select('candidato.nombres,apellidos,descripcion,link_pagina,directus_files.filename');
+      $this->db->from('candidato');
+      $this->db->join('directus_files', 'candidato.imagen = directus_files.id ');
       $query=$this->db->get();
       return $data=$query->result_array();
  }
