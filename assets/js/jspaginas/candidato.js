@@ -17,18 +17,7 @@ function GetCandidatosSeleccion() {
         success: function(response) {
 
             $.each(response, function(i, v) {
-                console.log(numerico);
-                if (v.val > numerico) {
-                    numerico = v.val;
-                    console.log('1-' + numerico);
-                    console.log('es mayor');
-
-                } else if (v.val === numerico) {
-                    console.log('2-' + numerico);
-                    console.log('es igual');
-                } else {
-                    console.log('es menor');
-                }
+                //console.log(response);
 
                 $('#listadodinamico').append(
 
@@ -52,6 +41,40 @@ function GetCandidatosSeleccion() {
                     '</div>' +
                     '</div>' +
                     '</div>'
+                )
+
+            });
+
+        }
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        //si retorna un error es por que el correo no existe imprimo en consola y recargo pagina de inicio de sesión    console.error(textStatus, errorThrown); 
+        //console.error(textStatus, errorThrown); // Algo fallo
+        Swal.fire(
+            '',
+            "Error al intertar traer los datos del tablero de control",
+            'error'
+        );
+
+    });
+
+    GetCountCandidatosSeleccion();
+}
+
+function GetCountCandidatosSeleccion() {
+    var pkusuario = $("#pkusuario").val();
+    var conser = $("#conser").val();
+
+    $.ajax({
+        url: base_url + 'hojaVidaCandidato/listarValCandidatoSeleccion',
+        method: 'POST',
+        data: { pkusuario: pkusuario, conser: conser },
+        success: function(response) {
+
+            $.each(response, function(i, v) {
+
+                $('#listadodinamico').append(
+
+
                 )
 
             });

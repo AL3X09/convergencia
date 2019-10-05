@@ -34,11 +34,29 @@ class hojaVidaCandidato extends CI_Controller {
 		$this->load->view('interno/footer');
 	}
 
-	public function listarCandidatoSeleccion()
+	public function listarValCandidatoSeleccion()
 	{
 		$fk_usuario = $_POST['pkusuario'];
 		$conser = $_POST['conser'];
 		$result = $this->CandidatoModel->listarCandidatoSeleccion($fk_usuario,$conser);
+		header('Content-type: application/json; charset=utf8');
+		echo json_encode($result);
+	}
+
+	public function listarCandidatoSeleccion()
+	{
+		$fk_usuario = $_POST['pkusuario'];
+		$conser = $_POST['conser'];
+		$data = $this->CandidatoModel->listarCandidatoSeleccion($fk_usuario,$conser);
+		$result = array();
+		$cont=0;
+		foreach ($data as $key => $value) {
+			
+			if($value->val >= $cont){
+				$cont=$value->val;
+				array_push($result,$value);
+			}
+		}
 		header('Content-type: application/json; charset=utf8');
 		echo json_encode($result);
 	}

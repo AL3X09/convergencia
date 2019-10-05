@@ -26,9 +26,11 @@
                     echo'<div class="col-md-12 col-sm-12">';
                         echo $row['nombres']." ".$row['apellidos'];
                         echo "<br>";
-                        echo base_url();
-                        echo base_url().$row['filename'];
+                        echo '<img src="'.base_url().'orm/public/thumbnail/_/200/200/crop/good/'.$row['filename'].'" alt="" class="rounded" style="max-width: 80%;">';
                         echo $row['descripcion'];
+                        echo "<br>";
+                        echo '<a href="'.$row['link_pagina'].'" target="_blanck">Ver más</a>';
+                        echo "<br>";
                     echo'</div>';
                   }
                 }
