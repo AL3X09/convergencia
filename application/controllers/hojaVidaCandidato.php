@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class hojaVidaCandidato extends CI_Controller {
+class HojaVidaCandidato extends CI_Controller {
 
 	//public function costruct
     public function __construct() {
@@ -38,7 +38,21 @@ class hojaVidaCandidato extends CI_Controller {
 	{
 		$fk_usuario = $_POST['pkusuario'];
 		$conser = $_POST['conser'];
-		$result = $this->CandidatoModel->listarCandidatoSeleccion($fk_usuario,$conser);
+		$data = $this->CandidatoModel->listarCandidatoSeleccion($fk_usuario,$conser);
+		$result['total'] = array();
+		$cont=0;
+		$porce=0;
+		foreach ($data as $key => $value) {
+			
+				$cont+=$value->val;
+			
+		}
+		array_push($result['total'],$cont);
+		foreach ($data as $key => $value) {
+			$porce=(($value->val*($cont*10))/100);
+			array_push($result,$porce);
+		
+		}
 		header('Content-type: application/json; charset=utf8');
 		echo json_encode($result);
 	}
@@ -57,6 +71,14 @@ class hojaVidaCandidato extends CI_Controller {
 				array_push($result,$value);
 			}
 		}
+		header('Content-type: application/json; charset=utf8');
+		echo json_encode($result);
+	}
+
+	public function getCandidato()
+	{
+		$fk_candidato = $_POST['fk_candidato'];
+		$result = $this->CandidatoModel->getCandidato($fk_candidato);
 		header('Content-type: application/json; charset=utf8');
 		echo json_encode($result);
 	}

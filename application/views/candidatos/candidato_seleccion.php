@@ -1,4 +1,35 @@
-<div class="wrapper">
+<div class="page-header">
+  <div class="page-header-image" data-parallax="true" style="background-image: url('assets/img/bogota.jpg');"></div>
+  <div class="container">
+  <div class="row">
+    <blockquote class="blockquote">
+      <p class="mb-0">Candidato a .</p>
+    </blockquote>
+    </div>
+    <div class="row">
+      <div class="">
+
+        <div class="container" id="listadocandidato">
+  
+        </div>
+      </div>
+      <div class="input-group no-border input-lg">
+      <input name="pkusuario" id="pkusuario" type="hidden" class="form-control" value="<?php echo $usuario['id']; ?>" />
+      </div>
+      <div class="input-group no-border input-lg">
+      <input name="conser" id="conser" type="hidden" class="form-control" value="<?php echo intval($_GET['se']); ?>" required  />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="contenidoModal">
+    
+    
+    <div class="wrapper">
     <div class="page-header clear-filter page-header-small" filter-color="orange">
 
     <div class="page-header-image" data-parallax="true" style="background-image: url(&quot;https://static.iris.net.co/dinero/upload/images/2018/12/20/265740_1.jpg&quot;); transform: translate3d(0px, 38.3333px, 0px);">
@@ -48,6 +79,7 @@
           Opinion con la actual alcaldia
         </a>
         </li>
+        
       </ul>
     </div>
 
@@ -99,14 +131,11 @@
 </div>
 
 
- 
-    </div>
-</div>
-</div>
 
-<div class="input-group no-border input-lg">
- <input name="pkusuario" id="pkusuario" type="hidden" class="form-control" value="<?php echo $usuario['id']; ?>" />
-</div>
-<div class="input-group no-border input-lg">
- <input name="conser" id="conser" type="hidden" class="form-control" value="<?php echo intval($_GET['se']); ?>" required  />
+
+
+
+
+    </div>
+  </div>
 </div>
