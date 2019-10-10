@@ -101,6 +101,15 @@
       }
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+		<script>
+		bulmaCarousel.attach('#carousel-demo', {
+			slidesToScroll: 1,
+			slidesToShow: 3,
+      infinite:true,
+      autoplay:true
+		});
+		</script>
 </body>
 
 </html>
