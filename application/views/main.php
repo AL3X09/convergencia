@@ -1,11 +1,10 @@
 <div class="main">
-
       <div class="section section-pagination">
         <div class="container">
-        <h2 class="text-center">Candidatos</h2>
-           <!-- Section Temas de interes -->
+           <!-- Section candidatos de interes -->
           <div class="row">
-              <div class="col-12">
+          <h2 class="col text-center">Candidatos</h2>
+            <div class="col-12">
               <div id="carousel-demo" class="carousel">
 
               <?php
@@ -19,7 +18,6 @@
                     echo'<div class="card text-center" style="width: 22rem;">';
                     echo'<img class="card-img-top" src="http://186.145.37.212/legoria/orm/public/thumbnail/_/200/200/crop/good/'.$row['filename'].'" alt="" class="rounded" >';
                     echo '<div class="card-body">';
-                       // echo '<img src="http://186.145.37.212/legoria/orm/public/thumbnail/_/200/200/crop/good/'.$row['filename'].'" alt="" class="rounded" style="max-width: 80%;">';
                         echo'<h4 class="card-title">'.$row['nombres']." ".$row['apellidos'].'</h4>';
                         echo' <p class="card-text">'.$row['descripcion'].'</p>';    
                         echo'<a href="'.$row['link_pagina'].'"class="btn btn-primary" target="_blanck">Ver más</a>';
@@ -30,15 +28,37 @@
                   }
                 }
                 ?>
-
+                
                 </div>
+              </div>
+              </div>
+              <br>
+              <!-- Section Temas de interes -->
+              <div class="row">
+              <?php
+              $i=1;
+              foreach ($contenido as $key => $valor)
+                {
+                  if ($key !='id') {
+                    echo '<div class="col-lg-6 col-sm-12">';
+                    echo $valor;
+                    echo '</div>';
+                  }
+                  
+                  /*foreach ($row as $row2)
+                  {
+                    echo $row2;
+                    
+                  }*/
+                  //echo $row->contenido_1;
+                  
+                }
+                ?>
 
               </div>
-            </div>
+
             
-          <br>
+         
         </div>
-
       </div>
-
 </div>
