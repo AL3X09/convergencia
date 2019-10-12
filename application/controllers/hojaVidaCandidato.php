@@ -40,6 +40,8 @@ class HojaVidaCandidato extends CI_Controller {
 		$conser = $_POST['conser'];
 		$data = $this->CandidatoModel->listarCandidatoSeleccion($fk_usuario,$conser);
 		$result['total'] = array();
+		$result['datos'] = array();
+		$result['nombres'] = array();
 		$cont=0;
 		$porce=0;
 		foreach ($data as $key => $value) {
@@ -50,9 +52,15 @@ class HojaVidaCandidato extends CI_Controller {
 		array_push($result['total'],$cont);
 		foreach ($data as $key => $value) {
 			$porce=(($value->val*($cont*10))/100);
-			array_push($result,$porce);
+			array_push($result['datos'],$porce);
 		
 		}
+		foreach ($data as $key => $value) {
+			$nn=$value->nombres;
+			array_push($result['nombres'],"$nn");
+		
+		}
+		//array_push($result['datos'],$cont);
 		header('Content-type: application/json; charset=utf8');
 		echo json_encode($result);
 	}
