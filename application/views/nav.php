@@ -54,8 +54,8 @@
       </div>
       <div class="container">
         <div class="content-center brand">
-          <img class="n-logo" src="<?php echo base_url(); ?>assets/img/Logo_app.png" alt="">
-          <h1 class="h1-seo">Legoría.</h1>
+          <img  src="<?php echo base_url(); ?>assets/img/Logo_app.png" alt="">
+          <!--class="n-logo"<h1 class="h1-seo">Legoría.</h1>-->
         </div>
       </div>
     </div>
