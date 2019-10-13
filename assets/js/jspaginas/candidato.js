@@ -59,7 +59,7 @@ function GetCandidatosSeleccion() {
     var conser = $("#conser").val();
 
     $.ajax({
-        url: base_url + 'hojaVidaCandidato/listarCandidatoSeleccion',
+        url: base_url + 'Candidato/listarCandidatoSeleccion',
         method: 'POST',
         data: { pkusuario: pkusuario, conser: conser },
         success: function(response) {
@@ -104,7 +104,7 @@ function ValDataCandidatosSeleccion(pkusuario, conser) {
 
 
     $.ajax({
-        url: base_url + 'hojaVidaCandidato/listarValCandidatoSeleccion',
+        url: base_url + 'Candidato/listarValCandidatoSeleccion',
         method: 'POST',
         data: { pkusuario: pkusuario, conser: conser },
         success: function(response) {
@@ -173,7 +173,7 @@ function DataCandidato(id) {
     $('#contenidoModal').empty();
 
     $.ajax({
-        url: base_url + 'hojaVidaCandidato/getCandidato',
+        url: base_url + 'Candidato/getCandidato',
         method: 'POST',
         data: { fk_candidato: id },
         success: function(response) {

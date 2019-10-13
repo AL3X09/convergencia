@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class HojaVidaCandidato extends CI_Controller {
+class Candidato extends CI_Controller {
 
 	//public function costruct
     public function __construct() {
