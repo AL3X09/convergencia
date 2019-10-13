@@ -14,11 +14,11 @@ return [
 
     'database' => [
         'type' => 'mysql',
-        'host' => 'localhost',
+        'host' => 'database-legoria.cmedzwwt047j.us-east-2.rds.amazonaws.com',
         'port' => 3306,
         'name' => 'convergencia',
-        'username' => 'root',
-        'password' => 'AL3X',
+        'username' => 'admin',
+        'password' => 'R_!8KlzE',
         'engine' => 'InnoDB',
         'charset' => 'utf8mb4',
         // When using unix socket to connect to the database the host attribute should be removed

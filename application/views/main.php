@@ -16,7 +16,7 @@
                     $classPrint='<div class="item-'.(string)$counta.'">';
                     echo($classPrint);
                     echo'<div class="card text-center" style="width: 22rem;">';
-                    echo'<img class="card-img-top" src="http://186.145.37.212/legoria/orm/public/thumbnail/_/200/200/crop/good/'.$row['filename'].'" alt="" class="rounded" >';
+                    echo'<img class="card-img-top" src="'.base_url().'orm/public/thumbnail/_/200/200/crop/good/'.$row['filename'].'" alt="" class="rounded" >';
                     echo '<div class="card-body">';
                         echo'<h4 class="card-title">'.$row['nombres']." ".$row['apellidos'].'</h4>';
                         echo' <p class="card-text">'.$row['descripcion'].'</p>';    

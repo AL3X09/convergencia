@@ -75,9 +75,13 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '186.145.37.212:3306',
-	'username' => 'ALEX',
-	'password' => 'Alex1234',
+<<<<<<< HEAD
+	'hostname' => 'database-legoria.cmedzwwt047j.us-east-2.rds.amazonaws.com:3306',
+=======
+	'hostname' => 'database-legoria.crxbh7utu7z7.us-east-1.rds.amazonaws.com:3306',
+>>>>>>> 76c8eb96435f1b905519782951dc4e8496d9e355
+	'username' => 'admin',
+	'password' => 'R_!8KlzE',
 	'database' => 'convergencia',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
