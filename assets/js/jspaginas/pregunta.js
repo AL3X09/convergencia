@@ -189,7 +189,7 @@ function EnviarRespuesta() {
 
             if (data.tipo = "success") {
                 setTimeout(function() {
-                    document.location.href = base_url + "hojaVidaCandidato?se=" + data.consect;
+                    document.location.href = base_url + "HojaVidaCandidato?se=" + data.consect;
                 }, 2000);
 
             } else {
