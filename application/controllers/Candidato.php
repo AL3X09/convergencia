@@ -73,14 +73,13 @@ class Candidato extends CI_Controller {
 		$result = array();
 		$cont=0;
 		foreach ($data as $key => $value) {
-			//print_r($cont);
 			if($value->val > $cont){
-				$cont=$value->val;
 				unset($result);
-				
 				$result = array();
 				array_push($result,$value);
-			}else if($value->val == $cont){
+
+			}
+			if($value->val == $cont){
 				$cont=$value->val;
 				array_push($result,$value);
 			}

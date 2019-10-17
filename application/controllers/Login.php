@@ -7,7 +7,8 @@ class Login extends CI_Controller {
     public function __construct() {
         parent:: __construct();
         $this->load->helper(array('url', 'form', 'array', 'html'));
-        $this->load->model(array('UsuarioModel', '',''));
+		$this->load->model(array('UsuarioModel', '',''));
+		
 	}
 	
 	public function removeCache() {
