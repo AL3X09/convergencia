@@ -31,15 +31,12 @@ class Login extends CI_Controller {
 	function acceder() {
 		$this->removeCache();
 		$Tbuario = new UsuarioModel();
-		//$key = $this->encryption->create_key(16);
 		$Nombre_usua = mb_strtolower($_POST['usuario'], 'UTF-8');
 		$Contrasena_usua = $_POST['password'];
 		
-		//$datos = $Tbuario->verificarAspirante($Nombre_usua);
-		
 			$usuario = $this->UsuarioModel->verificarAspirante($Nombre_usua);
-			//echo $this->encrypt->decode($usuario->contrasenia);
-			if (($usuario->usuario != '' && $usuario->contrasenia != '') && ($usuario->usuario == $Nombre_usua && $this->encrypt->decode($usuario->contrasenia) == $Contrasena_usua)) {
+			
+			if (($usuario->usuario != '' && $usuario->contrasenia != '') && ($usuario->usuario == $Nombre_usua && $this->encryption->decrypt($usuario->contrasenia) == $Contrasena_usua)) {
 			  
 			  if ($usuario->estado=='Activo') {
 				session_start();

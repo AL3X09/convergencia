@@ -15,7 +15,7 @@
         </div>
 
         <div class="row d-flex justify-content-center">
-            <div class="col-8">
+            <div class=" col-md-8 col-sm-12">
                 <div class="container" id="valores">
 
                     <div class="card">

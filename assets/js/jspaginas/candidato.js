@@ -187,9 +187,9 @@ function DataCandidato(id) {
             conte += '</div>';
             conte += '<div class="container">';
             conte += '<div class="row">';
-            conte += '<div class="col-md-4">';
+            conte += '<div class="col-md-4 col-sm-12">';
             conte += '</div>';
-            conte += '<div class="col-4">';
+            conte += '<div class="col-md-12 col-sm-12">';
             conte += '<img src="' + base_url + 'orm/public/uploads/_/originals/' + response[0]['foto'] + '" alt="candidato" class="rounded mx-auto d-block" style="width: 60%; height: 50%">';
             conte += '<a href="' + response[0]['link_pagina'] + '" target="_blank"><h3 class="title text-white">' + response[0]['nombres'] + ' ' + response[0]['apellidos'] + '</h3></a> ';
             conte += '</div>'; //col

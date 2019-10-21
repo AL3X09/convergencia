@@ -69,7 +69,7 @@ class UsuarioModel extends CI_Model {
       $Correo = $usuario->Correo;
       $Fklocalidad = $usuario->Fklocalidad;
       $Usuario = $usuario->Usuario;
-      $Contrasenia = $this->encrypt->encode($usuario->Contrasenia);
+      $Contrasenia = $this->encryption->encrypt($usuario->Contrasenia);
       $Img = $usuario->Imagen;
       $Estado = $usuario->Estado;
       $stmt->execute();
